@@ -21,13 +21,13 @@
         </div>
 
         <div class="form-registration">
-            <label for="last-name">Password:</label>
-            <input type="text" class="input-registration" name="password" placeholder="Enter your password">
+            <label for="password">Password:</label>
+            <input type="password" class="input-registration" name="password" placeholder="Enter your password">
         </div>
 
         <div class="form-registration">
-            <label for="last-name">Repeat password:</label>
-            <input type="text" class="input-registration" name="password_repeat" placeholder="Enter your password again">
+            <label for="password-repeat">Repeat password:</label>
+            <input type="password" class="input-registration" name="password-repeat" placeholder="Enter your password again">
         </div>
 
         <button type="submit" class="button-registration">Sign up!</button>
