@@ -6,32 +6,35 @@
     <form role="form" method="post" action="app/users/registeruser.php">
 
         <div class="form-registration">
-            <label for="name">Name:</label>
-            <input type="text" class="input-registration" id="name" name="name" placeholder="Enter your first name">
+            <label for="name">Full Name:</label>
+            <input type="text" class="input-registration" id="fullname" name="fullname" placeholder="Full Name">
         </div>
 
         <div class="form-registration">
-            <label for="user_name">Username:</label>
-            <input type="text" class="input-registration" name="user_name" placeholder="Enter your username">
+            <label for="username">Username:</label>
+            <input type="text" class="input-registration" name="username" placeholder="Enter your Username">
         </div>
 
         <div class="form-registration">
             <label for="email">Email:</label>
-            <input type="text" class="input-registration" name="email" placeholder="Enter your email">
+            <input type="text" class="input-registration" name="email" placeholder="Enter your Email">
         </div>
 
         <div class="form-registration">
             <label for="password">Password:</label>
-            <input type="password" class="input-registration" name="password" placeholder="Enter your password">
+            <input type="password" class="input-registration" name="password" placeholder="Enter your Password">
         </div>
 
-        <div class="form-registration">
+        <!-- <div class="form-registration">
             <label for="password-repeat">Repeat password:</label>
             <input type="password" class="input-registration" name="password-repeat" placeholder="Enter your password again">
-        </div>
+        </div> -->
 
         <button type="submit" class="button-registration">Sign up!</button>
         <p>Already have an account? Sign in <a href="/login.php">here</a></p>
+        <?php if (isset($_SESSION['error'])) : ?>
+            <p><?php echo $_SESSION['error']; ?></p>
+        <?php endif; ?>
     </form>
 </div>
 
