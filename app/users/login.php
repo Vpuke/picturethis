@@ -21,7 +21,7 @@ if (isset($_POST['username'], $_POST['password'])) {
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        $_SESSION['message'] = "This username does not exist";
+        $_SESSION['message'] = "The username does not exist";
         redirect('/login.php');
     }
 

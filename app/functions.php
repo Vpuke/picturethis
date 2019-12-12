@@ -43,9 +43,9 @@ function emailExists(string $email, object $pdo): bool
 
 /**
  * 
- * Checks if email exists and finds correct user
+ * Checks if username exists and finds correct user
  * 
- * @param string $email
+ * @param string $username
  * 
  * @param string $pdo
  * 
@@ -63,4 +63,20 @@ function userExists(string $username, object $pdo): bool
         return true;
     }
     return false;
+}
+
+
+/**
+ * Checks if user is logged in
+ *
+ * @param int $id
+ *
+ * @return bool
+ */
+function isLoggedIn(): bool
+{
+    return isset($_SESSION['user']);
+}
+if (isLoggedIn()) {
+    $user = $_SESSION['user'];
 }
