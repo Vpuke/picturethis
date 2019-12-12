@@ -25,15 +25,16 @@
             <input type="password" class="input-registration" name="password" placeholder="Enter your Password">
         </div>
 
-        <!-- <div class="form-registration">
+        <div class="form-registration">
             <label for="password-repeat">Repeat password:</label>
             <input type="password" class="input-registration" name="password-repeat" placeholder="Enter your password again">
-        </div> -->
+        </div>
 
         <button type="submit" class="button-registration">Sign up!</button>
         <p>Already have an account? Sign in <a href="/login.php">here</a></p>
-        <?php if (isset($_SESSION['error'])) : ?>
-            <p><?php echo $_SESSION['error']; ?></p>
+        <?php if (isset($_SESSION['message'])) : ?>
+            <p><?php echo $_SESSION['message'];
+                    unset($_SESSION['message']); ?></p>
         <?php endif; ?>
     </form>
 </div>
