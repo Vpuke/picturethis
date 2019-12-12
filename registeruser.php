@@ -31,7 +31,7 @@
         </div>
 
         <button type="submit" class="button-registration">Sign up!</button>
-        <p>Already have an account? Sign in <a href="/login.php">here</a></p>
+        <p>Already have an account? Sign in <a href="/index.php">here</a></p>
         <?php if (isset($_SESSION['message'])) : ?>
             <p><?php echo $_SESSION['message'];
                     unset($_SESSION['message']); ?></p>
