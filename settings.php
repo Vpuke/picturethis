@@ -33,11 +33,11 @@
         </div>
     </form>
 
-    <form action="#" class="user-settings" method="post" enctype="multipart/form-data">
+    <form action="app/users/update-email-settings.php" class="user-settings" method="post" enctype="multipart/form-data">
         <div class="form-information-email">
             <label for="email">Change your email</label>
             <br>
-            <input class="input-field-information" type="email" name="current-email" placeholder="Current Email">
+            <input class="input-field-information" type="email" name="current-email" placeholder="<?= $user['email'] ?>">
             <br>
             <input class="input-field-information" type="email" name="new-email" placeholder="New Email">
             <br>
@@ -47,7 +47,7 @@
         </div>
     </form>
 
-    <form action="#" class="user-settings" method="post" enctype="multipart/form-data">
+    <form action="app/users/update-password-settings.php" class="user-settings" method="post" enctype="multipart/form-data">
         <div class="form-information-password">
             <label for="password">Change your password</label>
             <br>
@@ -61,6 +61,10 @@
         </div>
     </form>
 
+    <?php if (isset($_SESSION['message'])) : ?>
+        <p><?php echo $_SESSION['message'];
+                unset($_SESSION['message']); ?></p>
+    <?php endif; ?>
 
 
 </section>
@@ -69,17 +73,3 @@
 
 
 <?php require __DIR__ . '/views/footer.php'; ?>
-
-
-<!-- name
-username
-confirm with password
-
-submit btn
-
-next form
-change email
-current,new,repeat
-
-next form change password,
-current, new, repeat, submit -->
