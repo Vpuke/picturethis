@@ -11,3 +11,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+section {
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

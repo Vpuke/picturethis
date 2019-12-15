@@ -21,7 +21,7 @@
                 <input class="input-field-login" type="password" name="password" id="password" placeholder="Enter Password" required>
             </div>
 
-            <button type="submit" class="submit-button-login">Login</button>
+            <button type="submit" class="submit-button" name="button">Login</button>
             <p>Don't have an account? Sign up <a href="/registeruser.php">here</a></p>
             <?php if (isset($_SESSION['message'])) : ?>
                 <p><?php echo $_SESSION['message']; ?></p>

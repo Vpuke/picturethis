@@ -10,7 +10,7 @@
     <form class="profile-image" action="#" method="post" enctype="multipart/form-data">
         <div class="form-information">
             <label for="profile-image">Choose your profile photo</label>
-            <input class="profile-image-input" type="file" accept="image/jpeg" name="profileimage" required>
+            <input class="input-field-information" type="file" accept="image/jpeg" name="profileimage" required>
             <button class="button-primary" type="submit" name="button">Upload photo</button>
         </div>
     </form>
@@ -19,13 +19,49 @@
         <div class="form-information">
             <label for="biography">Write some information about yourself</label>
             <textarea class="biography-field" name="biography" placeholder="Write some information about yourself" cols="30" rows="10"></textarea>
-
+            <br>
             <label for="name">Change your Name</label>
-            <input type="form-information" type="text" name="edit-name" placeholder="Change your name">
-
+            <input class="input-field-information" type="text" name="edit-name" placeholder="Change your Name">
+            <br>
             <label for="username">Change your Username</label>
+            <input class="input-field-information" type="username" name="edit-username" placeholder="Change your Username">
+            <br>
+            <label class="confirm-with-password" for="password-confirm"> Confirm changes with Password</label>
+            <input type="input-field-information" type="password" name="confirm-password" placeholder="Confirm changes with password">
+            <br>
+            <button class="submit-button" type="submit" name="button">Save your changes</button>
         </div>
     </form>
+
+    <form action="#" class="user-settings" method="post" enctype="multipart/form-data">
+        <div class="form-information-email">
+            <label for="email">Change your email</label>
+            <br>
+            <input class="input-field-information" type="email" name="current-email" placeholder="Current Email">
+            <br>
+            <input class="input-field-information" type="email" name="new-email" placeholder="New Email">
+            <br>
+            <input class="input-field-information" type="email" name="repeat-email" placeholder="Repeat New Email">
+            <br>
+            <button class="submit-button" type="submit">Save changes</button>
+        </div>
+    </form>
+
+    <form action="#" class="user-settings" method="post" enctype="multipart/form-data">
+        <div class="form-information-password">
+            <label for="password">Change your password</label>
+            <br>
+            <input class="input-field-information" type="password" name="current-password" placeholder="Current Password">
+            <br>
+            <input class="input-field-information" type="password" name="new-password" placeholder="New Password">
+            <br>
+            <input class="input-field-information" type="password" name="repeat-password" placeholder="Repeat New Password">
+            <br>
+            <button class="submit-button" type="submit">Save changes</button>
+        </div>
+    </form>
+
+
 
 </section>
 
@@ -35,7 +71,7 @@
 <?php require __DIR__ . '/views/footer.php'; ?>
 
 
-name
+<!-- name
 username
 confirm with password
 
@@ -46,4 +82,4 @@ change email
 current,new,repeat
 
 next form change password,
-current, new, repeat, submit
+current, new, repeat, submit -->
