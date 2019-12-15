@@ -5,18 +5,18 @@
 <?php else : ?>
     <article>
 
-        <h1>A new way to access your friends photo feed</h1>
+        <h1>A new way to access your friends photos.</h1>
 
         <h2>Login or sign up!</h2>
 
-        <form action="app/users/login.php" method="post">
+        <form class="index-form" action="app/users/login.php" method="post">
 
-            <div class="login-information">
+            <div class="form-information">
                 <label for="email">Username:</label>
                 <input class="input-field-login" type="username" name="username" id="username" placeholder="Enter Username" required>
             </div>
 
-            <div class="login-information">
+            <div class="form-information">
                 <label for="password">Password:</label>
                 <input class="input-field-login" type="password" name="password" id="password" placeholder="Enter Password" required>
             </div>
