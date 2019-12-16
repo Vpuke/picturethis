@@ -7,10 +7,10 @@
 <section class="settings-page">
     <h2>Settings</h2>
 
-    <form class="profile-image" action="#" method="post" enctype="multipart/form-data">
+    <form class="profile-image" action="app/users/profileimage.php" method="post" enctype="multipart/form-data">
         <div class="form-information">
             <label for="profile-image">Choose your profile photo</label>
-            <input class="input-field-information" type="file" accept="image/jpeg" name="profileimage" required>
+            <input class="input-field-information" type="file" accept="image/jpeg, image/png" name="profileimage" required>
             <button class="button-primary" type="submit" name="button">Upload photo</button>
         </div>
     </form>
