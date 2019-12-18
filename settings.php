@@ -19,7 +19,7 @@
         <div class="form-information">
             <label for="biography">Write some information about yourself</label>
             <textarea class="biography-field" name="biography" placeholder="<?= $user['biography'] ?>" cols="30" rows="10"></textarea>
-            <br>
+            <br> <!-- not able to echo out the bio in placeholder-->
             <label for="name">Change your Name</label>
             <input class="input-field-information" type="text" name="edit-name" placeholder="<?= $user['fullname'] ?>">
             <br>
