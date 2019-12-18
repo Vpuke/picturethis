@@ -9,26 +9,26 @@
 
     <form class="profile-image" action="app/users/profileimage.php" method="post" enctype="multipart/form-data">
         <div class="form-information">
-            <label for="profile-image">Choose your profile photo</label>
+            <label for="profile-image">Choose your profile image</label>
             <input class="input-field-information" type="file" accept="image/jpeg, image/png" name="profileimage" required>
             <button class="button-primary" type="submit" name="button">Upload photo</button>
         </div>
     </form>
 
-    <form class="user-settings" action="#" method="post" enctype="multipart/form-data">
+    <form class="user-settings" action="app/users/biography.php" method="post" enctype="multipart/form-data">
         <div class="form-information">
             <label for="biography">Write some information about yourself</label>
-            <textarea class="biography-field" name="biography" placeholder="Write some information about yourself" cols="30" rows="10"></textarea>
+            <textarea class="biography-field" name="biography" placeholder="<?= $user['biography'] ?>" cols="30" rows="10"></textarea>
             <br>
             <label for="name">Change your Name</label>
-            <input class="input-field-information" type="text" name="edit-name" placeholder="Change your Name">
+            <input class="input-field-information" type="text" name="edit-name" placeholder="<?= $user['fullname'] ?>">
             <br>
             <label for="username">Change your Username</label>
-            <input class="input-field-information" type="username" name="edit-username" placeholder="Change your Username">
+            <input class="input-field-information" type="text" name="edit-username" placeholder="<?= $user['username'] ?>">
             <br>
-            <label class="confirm-with-password" for="password-confirm"> Confirm changes with Password</label>
+            <!-- <label class="confirm-with-password" for="password-confirm"> Confirm changes with Password</label>
             <input type="input-field-information" type="password" name="confirm-password" placeholder="Confirm changes with password">
-            <br>
+            <br> -->
             <button class="submit-button" type="submit" name="button">Save your changes</button>
         </div>
     </form>
@@ -68,8 +68,5 @@
 
 
 </section>
-
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

@@ -12,10 +12,9 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
     $pathToFile = __DIR__ . '/images';
     $fileType = pathinfo($_FILES['profileimage']['name'], PATHINFO_EXTENSION);
 
+    //Created new variable for new profile image username with date of upload and current filetype of image.
 
-    //Created new variable for new profile image name with current filetype of image.
-
-    $newProfileImage = $username . '.' . $fileType;
+    $newProfileImage = $username . '-' . date('ymd') . '.' . $fileType;
 
     // Makes sure that the size of the image is smaller than 3mb
 
