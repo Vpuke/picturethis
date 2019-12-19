@@ -22,13 +22,10 @@
             <br> <!-- not able to echo out the bio in placeholder-->
             <label for="name">Change your Name</label>
             <input class="input-field-information" type="text" name="edit-name" placeholder="<?= $user['fullname'] ?>">
-            <br>
+            <br> <!-- Not working with SESSION either. -->
             <label for="username">Change your Username</label>
             <input class="input-field-information" type="text" name="edit-username" placeholder="<?= $user['username'] ?>">
             <br>
-            <!-- <label class="confirm-with-password" for="password-confirm"> Confirm changes with Password</label>
-            <input type="input-field-information" type="password" name="confirm-password" placeholder="Confirm changes with password">
-            <br> -->
             <button class="submit-button" type="submit" name="button">Save your changes</button>
         </div>
     </form>
