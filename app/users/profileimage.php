@@ -37,10 +37,10 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
         $statement->execute();
 
         // Moves the image to correct folder and     
-        move_uploaded_file($newProfileImage, $pathToFile);
-        $_SESSION['message'] = "Your profile image was successfully changed";
-        $_SESSION['user']['profileimage'] = $newProfileImage;
-        redirect('/settings.php');
+        move_uploaded_file($profileImage['tmp_name'], $pathToFile . $newProfileImage);
     }
-    redirect('/');
+    $_SESSION['message'] = "Your profile image was successfully changed";
+    $_SESSION['user']['profileimage'] = $newProfileImage;
+    redirect('/settings.php');
 }
+redirect('/');
