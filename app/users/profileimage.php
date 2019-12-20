@@ -9,7 +9,7 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
     $profileImage = $_FILES['profileimage'];
     $username = $_SESSION['user']['username'];
     $id = (int) $_SESSION['user']['id'];
-    $pathToFile = __DIR__ . '/images';
+    $pathToFile = __DIR__ . '/images/';
     $fileType = pathinfo($_FILES['profileimage']['name'], PATHINFO_EXTENSION);
 
     //Created new variable for new profile image username with date of upload and current filetype of image.
@@ -39,6 +39,7 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
         // Moves the image to correct folder and     
         move_uploaded_file($newProfileImage, $pathToFile);
         $_SESSION['message'] = "Your profile image was successfully changed";
+        $_SESSION['user']['profileimage'] = $newProfileImage;
         redirect('/settings.php');
     }
     redirect('/');
