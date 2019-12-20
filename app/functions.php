@@ -80,3 +80,20 @@ function isLoggedIn(): bool
 if (isLoggedIn()) {
     $user = $_SESSION['user'];
 }
+
+
+
+function getUserById(string $id, PDO $pdo): array
+{
+    $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+    $statement->bindParam(':id', $id, PDO::PARAM_STR);
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    if ($user) {
+        return $user;
+    }
+    return $user = [];
+}

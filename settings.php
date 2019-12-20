@@ -4,6 +4,8 @@
     redirect('/');
 } ?>
 
+<?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
+
 <section class="settings-page">
     <h2>Settings</h2>
 

@@ -4,22 +4,23 @@
     redirect('/');
 } ?>
 
-
+<?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
 
 <section class="profile-page">
 
-    <p> <?php echo $_SESSION['user']['username']; ?> - Profile</p>
+    <p> <?php echo $_SESSION['user']['username']; ?></p>
 
     <div class="profile-image">
-        <img src="<?= 'app/users/images/' . $_SESSION['user']['profileimage'] ?>" alt="Profile-image">
+        <?php if (isLoggedIn()) : ?>
+            <img src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+        <?php endif; ?>
     </div>
 
     <div class="biography-profile-page">
-        <h3>Biography</h3>
-        <p><?php echo ("{$_SESSION['user']['biography']}"); ?></p>
+        <?php if (isLoggedIn()) : ?>
+            <p><?php echo $user['biography']; ?></p>
+        <?php endif; ?>
     </div>
-
-
 
 
     <a href="settings.php">Edit Profile</a>
