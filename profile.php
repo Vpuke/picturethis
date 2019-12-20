@@ -8,18 +8,21 @@
 
 <section class="profile-page">
 
-    <p>Profile page - <?php echo $_SESSION['user']['username']; ?></p>
+    <p> <?php echo $_SESSION['user']['username']; ?> - Profile</p>
 
     <div class="profile-image">
-
         <img src="<?= 'app/users/images/' . $_SESSION['user']['profileimage'] ?>" alt="Profile-image">
+    </div>
 
+    <div class="biography-profile-page">
+        <h3>Biography</h3>
+        <p><?php echo ("{$_SESSION['user']['biography']}"); ?></p>
     </div>
 
 
 
 
-
+    <a href="settings.php">Edit Profile</a>
 </section>
 
 
