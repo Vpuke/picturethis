@@ -1,7 +1,5 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
-
 <?php if (isset($_SESSION['user'])) : ?>
     <p>Welcome, <?php echo $user['username']; ?>!</p>
 <?php else : ?>

@@ -24,6 +24,9 @@
 
 
     <a href="settings.php">Edit Profile</a>
+
+    <!-- ADD REST OF PAGE FOR PHOTOS I HAVE UPLOADED -->
+
 </section>
 
 

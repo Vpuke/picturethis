@@ -22,7 +22,7 @@ if (isset($_POST['username'], $_POST['password'])) {
 
     if (!$user) {
         $_SESSION['message'] = "The username does not exist";
-        redirect('/login.php');
+        redirect('/index.php');
     }
 
     if (password_verify($_POST['password'], $user['password'])) {
