@@ -1,6 +1,13 @@
-    <!-- </div>/container -->
+<footer>
+    <section class="footer">
 
-    <script src="/assets/scripts/main.js"></script>
-    </body>
+        <a href="index.php">Home</a>
+        <a href="upload.php">Upload post</a>
+        <a href="profile.php">Profile</a>
 
-    </html>
+    </section>
+</footer>
+<script src="/assets/scripts/main.js"></script>
+</body>
+
+</html>

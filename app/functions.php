@@ -77,9 +77,7 @@ function isLoggedIn(): bool
 {
     return isset($_SESSION['user']);
 }
-if (isLoggedIn()) {
-    $user = $_SESSION['user'];
-}
+
 
 
 
