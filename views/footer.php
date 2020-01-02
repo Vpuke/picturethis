@@ -1,9 +1,9 @@
 <footer>
     <section class="footer">
 
-        <a class="icons" href="index.php">Home</a>
-        <a class="icons" href="upload.php">Upload</a>
-        <a class="icons" href="profile.php">Profile</a>
+        <a class="icons" href="index.php"><i class="fas fa-home"></i></a>
+        <a class="icons" href="upload.php"><i class="fas fa-arrow-circle-up"></i></a>
+        <a class="icons" href="profile.php"><i class="fas fa-user"></i></a>
 
     </section>
 </footer>

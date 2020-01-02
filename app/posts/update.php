@@ -6,7 +6,7 @@ require __DIR__ . '/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
 
-    $editPost = $_POST['editPost'];
+    $editPost = trim(filter_var($_POST['editPost'], FILTER_SANITIZE_STRING));
     $postId = $_POST['postId'];
     $id = (int) $_SESSION['user']['id'];
 
@@ -22,6 +22,8 @@ if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
 
     $statement->execute();
 
-    $_SESSION['message'] = "Your post description was successfully changed";
+    $_SESSION['message'] = "Your post post was successfully changed";
+    redirect('/');
+    // DONT FORGET TO REDIRECT TO CORRECT PLACE.
 }
 redirect('/');
