@@ -4,7 +4,11 @@
     redirect('/');
 } ?>
 
+
 <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
+<?php $id = (int) $_SESSION['user']['id']; ?>
+<?php $posts = getPostsByUser($id, $pdo); ?>
+
 
 <section class="profile-page">
 
@@ -25,7 +29,15 @@
 
     <a href="settings.php">Edit Profile</a>
 
-    <!-- ADD REST OF PAGE FOR PHOTOS I HAVE UPLOADED -->
+    <!-- Cant print posts on profile page -->
+
+    <?php if (isLoggedIn()) : ?>
+        <?php foreach ($posts as $post) : ?>
+            <div class="smallPosts">
+                <img src="<?= 'app/posts/uploads/' . $post['userId'] . '/' . $post['postImage'] ?>" alt="">
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 
 </section>
 
