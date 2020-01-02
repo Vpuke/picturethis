@@ -14,5 +14,33 @@ if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
     $fileType = pathinfo($_FILES['post_image']['name'], PATHINFO_EXTENSION);
 
 
-    $newPostImage = $username . '-' . date('ymd') . '.' . $fileType;
+    $newPostImage = $username . '-' . date('ymd-h:i') . '.' . $fileType;
+
+
+    if ($postImage['size'] >= 3000000) {
+        $_SESSION['message'] = "The image you chose is too big";
+        redirect('/upload.php');
+    } else {
+        filter_var($postImage['name'], FILTER_SANITIZE_STRING);
+
+        $statement = $pdo->prepare('INSERT INTO posts(postImage, postContent, userId) VALUES(:postImage, :postContent, :userId)');
+
+
+        if (!$statement) {
+            die(var_dump($pdo->errorInfo()));
+        }
+
+        $statement->bindParam(':postImage', $newPostImage, PDO::PARAM_STR);
+        $statement->bindParam('postContent', $postDescription, PDO::PARAM_STR);
+        $statement->bindParam(':userId', $id, PDO::PARAM_INT);
+
+        $statement->execute();
+
+
+        move_uploaded_file($postImage['tmp_name'], $pathToFile . $newPostImage);
+    }
+    $_SESSION['message'] = "Your post was successfully uploaded";
+    $_SESSION['posts']['post_image'] = $newPostImage;
+    redirect('/profile.php');
 }
+redirect('/');

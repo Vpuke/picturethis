@@ -20,3 +20,17 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+.profile-page {
+}
+
+.profile-image-src {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: flex;
+}
+
+.biography-profile-page {
+  width: 50%;
+}

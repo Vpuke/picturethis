@@ -12,7 +12,7 @@
 
     <div class="profile-image">
         <?php if (isLoggedIn()) : ?>
-            <img src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+            <img class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
         <?php endif; ?>
     </div>
 
