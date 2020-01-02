@@ -109,7 +109,7 @@ function getUserById(int $id, PDO $pdo): array
 
 function getPostsByUser(int $id, object $pdo): array
 {
-    $statement = $pdo->prepare('SELECT * FROM posts WHERE userID = :userID');
+    $statement = $pdo->prepare('SELECT * FROM posts WHERE userId = :userId');
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));

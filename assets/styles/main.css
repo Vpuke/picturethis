@@ -6,6 +6,7 @@
 
 body {
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +23,9 @@ section {
 }
 
 .profile-page {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .profile-image-src {
@@ -32,5 +36,35 @@ section {
 }
 
 .biography-profile-page {
-  width: 50%;
+  width: 80%;
+}
+
+.profilePostSrc {
+  width: calc(92% / 3);
+  margin: 5px;
+}
+
+.profileWrapper {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profile-info {
+  margin: 10px;
+}
+.profile-info p {
+  margin: 10px 0;
+}
+
+/* HIDDEN SETTINGS */
+
+.hidden {
+  /* display: none; */
+}
+
+.visible {
+  display: flex;
 }
