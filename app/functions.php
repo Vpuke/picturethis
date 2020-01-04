@@ -79,9 +79,16 @@ function isLoggedIn(): bool
 }
 
 
+/**
+ * 
+ *  Gets user by id
+ * 
+ * @param int $user
+ * @param PDO $pdo
+ * @return array
+ */
 
-
-function getUserById(int $id, PDO $pdo): array
+function getUserById(int $id, object $pdo): array
 {
     $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
 
@@ -102,7 +109,7 @@ function getUserById(int $id, PDO $pdo): array
  * 
  *  Returns all posts from a user
  * 
- * @param int $postId
+ * @param int $posts
  * @param PDO $pdo
  * @return array
  * 
