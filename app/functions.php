@@ -146,7 +146,7 @@ function getPostsByUser(int $id, object $pdo): array
 function getAllPosts(object $pdo): array
 {
     $statement = $pdo->prepare('SELECT posts.id, posts.postImage, posts.postContent, posts.createdAt,
-                                        users.id, users.username FROM posts JOIN users ON posts.userId = users.id
+                                        users.id as userId, users.username FROM posts JOIN users ON posts.userId = users.id
                                         ORDER BY createdAt DESC');
 
     if (!$statement) {
@@ -158,4 +158,27 @@ function getAllPosts(object $pdo): array
     $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $allPosts;
+}
+
+
+/**
+ * 
+ * 
+ * Count likes function
+ * 
+ * 
+ * 
+ */
+
+function countLikes(int $postId, object $pdo): string
+{
+    $statement = $pdo->prepare('SELECT COUNT(*) FROM likes WHERE postId = :postId');
+
+    $statement->bindParam(':postId', $postId, PDO::PARAM_INT);
+
+    $statement->execute();
+
+    $likes = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $likes["COUNT(*)"];
 }

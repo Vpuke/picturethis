@@ -13,7 +13,10 @@
                 <p><?= $post['username'] ?></p>
                 <p><?= $post['createdAt'] ?></p>
                 <p><?= $post['postContent'] ?></p>
-                <form action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                <?php $likes = countLikes($post['id'], $pdo) ?>
+                <p><?php echo $likes ?></p>
+                <form class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="postId" value="<?= $post['id'] ?>">
                     <button class="button-primary button-likes" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
                     <button class="button-primary button-likes hidden" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
                 </form>
@@ -46,7 +49,7 @@
             <p>Do not have an account? Sign up <a href="/registeruser.php">here</a></p>
             <?php if (isset($_SESSION['message'])) : ?>
                 <p><?php echo $_SESSION['message'];
-                            unset($_SESSION['message']); ?></p>
+                    unset($_SESSION['message']); ?></p>
             <?php endif; ?>
         </form>
 
