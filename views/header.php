@@ -13,6 +13,11 @@ require __DIR__ . '/../app/autoload.php';
 
     <script src="https://kit.fontawesome.com/83f8941984.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/profile.css">
+    <link rel="stylesheet" href="/assets/styles/footer.css">
+    <link rel="stylesheet" href="/assets/styles/navigation.css">
+    <link rel="stylesheet" href="/assets/styles/loginpage.css">
+    <link rel="stylesheet" href="/assets/styles/feed.css">
 </head>
 
 <body>

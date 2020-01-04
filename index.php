@@ -1,21 +1,25 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
-
-
-
 <?php if (isset($_SESSION['user'])) : ?>
+    <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
+    <?php $allPosts = getAllPosts($pdo); ?>
 
-    <section class="user-feed">
-
-        <p>Welcome, <?php echo $user['username']; ?>!</p>
-
+    <section class="userFeed">
+        <?php foreach ($allPosts as $post) : ?>
+            <div class="feedPosts">
+                <img class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                <p><?= $post['username'] ?></p>
+                <p><?= $post['createdAt'] ?></p>
+                <p><?= $post['postContent'] ?></p>
+            </div>
+        <?php endforeach; ?>
     </section>
 
 
 
+    <?php require __DIR__ . '/views/footer.php'; ?>
 <?php else : ?>
-    <article>
+    <article class="loginPage">
 
         <h1>A new way to access your friends photos.</h1>
 
@@ -36,14 +40,14 @@
             <button type="submit" class="submit-button" name="button">Login</button>
             <p>Don't have an account? Sign up <a href="/registeruser.php">here</a></p>
             <?php if (isset($_SESSION['message'])) : ?>
-                <p><?php echo $_SESSION['message']; ?></p>
+                <p><?php echo $_SESSION['message'];
+                            unset($_SESSION['message']); ?></p>
             <?php endif; ?>
         </form>
 
     </article>
+
+
+
+
 <?php endif; ?>
-
-
-
-
-<?php require __DIR__ . '/views/footer.php'; ?>

@@ -23,7 +23,6 @@ if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
     $statement->execute();
 
     $_SESSION['message'] = "Your post post was successfully changed";
-    redirect('/');
-    // DONT FORGET TO REDIRECT TO CORRECT PLACE.
+    redirect('/profile.php');
 }
 redirect('/');

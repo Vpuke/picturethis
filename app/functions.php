@@ -84,6 +84,7 @@ function isLoggedIn(): bool
 function getUserById(int $id, PDO $pdo): array
 {
     $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
@@ -121,4 +122,33 @@ function getPostsByUser(int $id, object $pdo): array
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $posts;
+}
+
+
+
+/**
+ * 
+ *  Returns all posts from all users
+ * 
+ * @param PDO $pdo
+ * @return array
+ * 
+ */
+
+
+function getAllPosts(object $pdo): array
+{
+    $statement = $pdo->prepare('SELECT posts.id, posts.postImage, posts.postContent, posts.createdAt,
+                                        users.id, users.username FROM posts JOIN users ON posts.userId = users.id
+                                        ORDER BY createdAt DESC');
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute();
+
+    $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $allPosts;
 }

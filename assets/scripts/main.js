@@ -11,6 +11,7 @@ postImages.forEach(postImage =>
     const id = event.target.dataset.id;
     const imageInfo = document.querySelector(`.postContent[data-id="${id}"]`);
     imageInfo.classList.toggle("hidden");
+
     const editPost = document.querySelector(
       `.updatePostContent[data-id="${id}"]`
     );

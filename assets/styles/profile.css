@@ -1,0 +1,45 @@
+.profile-page {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.profile-image-src {
+  width: 25%;
+  margin: 0 10px;
+  border-radius: 50%;
+  display: flex;
+}
+
+.biography-profile-page {
+  width: 80%;
+}
+
+.profilePostSrc {
+  width: calc(92% / 3);
+  margin: 5px;
+}
+
+.profileWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profile-info {
+  margin: 10px;
+  width: 100%;
+}
+.profile-info p {
+  margin: 10px 10px;
+}
+
+/* HIDDEN SETTINGS */
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: flex;
+}
