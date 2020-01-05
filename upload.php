@@ -24,6 +24,10 @@
             <br>
             <button class="button-primary" type="submit" name="button">Upload Post</button>
         </div>
+        <?php if (isset($_SESSION['message'])) : ?>
+            <p><?php echo $_SESSION['message'];
+                unset($_SESSION['message']); ?></p>
+        <?php endif; ?>
     </form>
 
 </section>

@@ -182,3 +182,17 @@ function countLikes(int $postId, object $pdo): string
 
     return $likes["COUNT(*)"];
 }
+
+
+function isLikedByUser(int $postId, int $userId, object $pdo): bool
+{
+    $statement = $pdo->prepare('SELECT * FROM likes WHERE postId = :postId AND userId = :userId');
+    $statement->bindParam(':postId', $postId, PDO::PARAM_INT);
+    $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
+
+    $statement->execute();
+
+    $isLikedByUser = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $isLikedByUser ? true : false;
+}

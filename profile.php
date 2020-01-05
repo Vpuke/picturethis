@@ -19,7 +19,7 @@
             <?php endif; ?>
         </div>
 
-        <p> <?php echo $user['username'] ?></p>
+        <p class="username"> <?php echo $user['username'] ?></p>
 
         <div class="biography-profile-page">
             <?php if (isLoggedIn()) : ?>

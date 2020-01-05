@@ -9,17 +9,26 @@
     <section class="userFeed">
         <?php foreach ($allPosts as $post) : ?>
             <div class="feedPosts">
+                <div class="info-top-image">
+                    <img class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+                    <p class="username"><?= $post['username'] ?></p>
+                </div>
                 <img class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
-                <p><?= $post['username'] ?></p>
-                <p><?= $post['createdAt'] ?></p>
-                <p><?= $post['postContent'] ?></p>
                 <?php $likes = countLikes($post['id'], $pdo) ?>
-                <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
-                <form data-id="<?= $post['id'] ?>" class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="postId" value="<?= $post['id'] ?>">
-                    <button data-id="<?= $post['id'] ?>" class=" button-likes like" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
-                    <button data-id="<?= $post['id'] ?>" class=" button-liked like hidden" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
-                </form>
+                <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
+                <div class="info-bottom-image">
+                    <div class="likes-position">
+                        <form data-id="<?= $post['id'] ?>" class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="postId" value="<?= $post['id'] ?>">
+                            <button data-id="<?= $post['id'] ?>" class=" button-likes like <?= $isLikedByUser ? 'hidden' : '' ?>" type=" submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
+                            <button data-id="<?= $post['id'] ?>" class=" button-liked like <?= $isLikedByUser ? '' : 'hidden' ?>" type=" submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
+                        </form>
+                        <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
+                    </div>
+                    <p class="username"><?= $post['username'] ?></p>
+                    <p><?= $post['postContent'] ?></p>
+                    <p><?= $post['createdAt'] ?></p>
+                </div>
             </div>
         <?php endforeach; ?>
     </section>

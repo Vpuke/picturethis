@@ -12,6 +12,7 @@ require __DIR__ . '/../app/autoload.php';
     <title><?php echo $config['title']; ?></title>
 
     <script src="https://kit.fontawesome.com/83f8941984.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles/main.css">
     <link rel="stylesheet" href="/assets/styles/profile.css">
     <link rel="stylesheet" href="/assets/styles/footer.css">
@@ -20,6 +21,7 @@ require __DIR__ . '/../app/autoload.php';
     <link rel="stylesheet" href="/assets/styles/feed.css">
     <link rel="stylesheet" href="/assets/styles/buttons.css">
     <link rel="stylesheet" href="/assets/styles/settings.css">
+    <link rel="stylesheet" href="/assets/styles/upload.css">
 </head>
 
 <body>

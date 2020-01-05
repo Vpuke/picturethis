@@ -17,14 +17,13 @@ if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
     $newPostImage = $username . '-' . date('ymd-h:i') . '.' . $fileType;
 
 
-    if ($postImage['size'] >= 3000000) {
+    if ($postImage['size'] >= 5000000) {
         $_SESSION['message'] = "The image you chose is too big";
         redirect('/upload.php');
     } else {
         filter_var($postImage['name'], FILTER_SANITIZE_STRING);
 
         $statement = $pdo->prepare('INSERT INTO posts(postImage, postContent, userId) VALUES(:postImage, :postContent, :userId)');
-
 
         if (!$statement) {
             die(var_dump($pdo->errorInfo()));
