@@ -25,7 +25,10 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
         redirect('/registeruser.php');
     }
 
-    $statement = $pdo->prepare('INSERT INTO users (fullname, username, email, password) VALUES (:fullname, :username, :email, :password)');
+    $profileimage = 'placeholder.png';
+
+    $statement = $pdo->prepare('INSERT INTO users (fullname, username, email, password, profileimage) 
+                                VALUES (:fullname, :username, :email, :password, :profileimage)');
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -33,7 +36,11 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
     $statement->bindParam(':username', $username, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':password', $password, PDO::PARAM_STR);
+    $statement->bindParam(':profileimage', $profileimage, PDO::PARAM_STR);
     $statement->execute();
+
+    redirect('/index.php');
+    $_SESSION['message'] = "You created an account! Please login.";
 }
 
 redirect('/');

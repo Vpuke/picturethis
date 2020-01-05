@@ -51,6 +51,7 @@ if (isLoggedIn() && isset($_POST['postId'])) {
     $likes = json_encode($likes);
     header('Content-Type: application/json');
     echo $likes;
-}
+} else {
 
-redirect('/');
+    redirect('/index.php');
+}

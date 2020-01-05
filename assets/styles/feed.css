@@ -10,3 +10,7 @@
 .feedPosts {
   width: 100vw;
 }
+
+.button-liked i {
+  color: red;
+}

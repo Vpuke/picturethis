@@ -14,11 +14,11 @@
                 <p><?= $post['createdAt'] ?></p>
                 <p><?= $post['postContent'] ?></p>
                 <?php $likes = countLikes($post['id'], $pdo) ?>
-                <p><?php echo $likes ?></p>
-                <form class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
+                <form data-id="<?= $post['id'] ?>" class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="postId" value="<?= $post['id'] ?>">
-                    <button class="button-primary button-likes" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
-                    <button class="button-primary button-likes hidden" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
+                    <button data-id="<?= $post['id'] ?>" class=" button-likes like" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
+                    <button data-id="<?= $post['id'] ?>" class=" button-liked like hidden" type="submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
                 </form>
             </div>
         <?php endforeach; ?>
