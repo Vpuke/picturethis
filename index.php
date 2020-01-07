@@ -27,7 +27,9 @@
                     </div>
                     <p class="username"><?= $post['username'] ?></p>
                     <p><?= $post['postContent'] ?></p>
-                    <p><?= $post['createdAt'] ?></p>
+                    <p><?php $date = $post['createdAt'];
+                        $currentDate = explode("-", $date);
+                        echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
                 </div>
             </div>
         <?php endforeach; ?>

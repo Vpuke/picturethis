@@ -12,9 +12,9 @@ if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
     $id = (int) $_SESSION['user']['id'];
     $pathToFile = __DIR__ . '/uploads/';
     $fileType = pathinfo($_FILES['post_image']['name'], PATHINFO_EXTENSION);
+    $dateAndTime = date('d-M-Y-H:i:s');
 
-
-    $newPostImage = $username . '-' . date('ymd-h:i') . '.' . $fileType;
+    $newPostImage = $username . '-' . $dateAndTime . '.' . $fileType;
 
 
     if ($postImage['size'] >= 5000000) {
@@ -23,12 +23,13 @@ if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
     } else {
         filter_var($postImage['name'], FILTER_SANITIZE_STRING);
 
-        $statement = $pdo->prepare('INSERT INTO posts(postImage, postContent, userId) VALUES(:postImage, :postContent, :userId)');
+        $statement = $pdo->prepare('INSERT INTO posts(postImage, postContent, userId, createdAt) VALUES(:postImage, :postContent, :userId, :createdAt)');
 
         if (!$statement) {
             die(var_dump($pdo->errorInfo()));
         }
 
+        $statement->bindParam(':createdAt', $dateAndTime, PDO::PARAM_STR);
         $statement->bindParam(':postImage', $newPostImage, PDO::PARAM_STR);
         $statement->bindParam('postContent', $postDescription, PDO::PARAM_STR);
         $statement->bindParam(':userId', $id, PDO::PARAM_INT);

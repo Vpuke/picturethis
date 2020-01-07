@@ -19,7 +19,7 @@
             <?php endif; ?>
         </div>
 
-        <p class="username"> <?php echo $user['username'] ?></p>
+        <p class=> <?php echo $user['username'] ?></p>
 
         <div class="biography-profile-page">
             <?php if (isLoggedIn()) : ?>
@@ -37,7 +37,11 @@
             <?php foreach ($posts as $post) : ?>
                 <img data-id="<?= $post['id'] ?>" class="profilePostSrc" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
                 <div data-id="<?= $post['id'] ?>" class="postContent hidden">
-                    <p><?php echo $post['createdAt']; ?></p>
+
+                    <p><?php $date = $post['createdAt'];
+                        $currentDate = explode("-", $date);
+                        echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
+
                     <p><?php echo $post['postContent']; ?></p>
                 </div>
                 <!-- EDIT POST -->
