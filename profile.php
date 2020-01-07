@@ -35,6 +35,7 @@
     <?php if (isLoggedIn()) : ?>
         <div class="profileWrapper">
             <?php foreach ($posts as $post) : ?>
+                <!-- <div data-id="<?= $post['id'] ?>" class="profilePost"> -->
                 <img data-id="<?= $post['id'] ?>" class="profilePostSrc" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
                 <div data-id="<?= $post['id'] ?>" class="postContent hidden">
 
@@ -45,16 +46,19 @@
                     <p><?php echo $post['postContent']; ?></p>
                 </div>
                 <!-- EDIT POST -->
+                <!-- <button data-id="<?= $post['id'] ?>" class="submit-button edit-button hidden" type="button" name="postId" value="<?= $post['id'] ?>">Edit Post</button> -->
                 <div data-id="<?= $post['id'] ?>" class="updatePostContent hidden">
                     <form action="app/posts/update.php" method="post" enctype="multipart/form-data">
                         <label class="general-label" for="editPost">Edit post description</label>
                         <textarea name="editPost" cols="30" rows="10" placeholder=""></textarea>
                         <button class="submit-button" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
+                        <!-- <button data-id="<?= $post['id'] ?>" class="submit-button cancel-button" type="button" name="postId" value="<?= $post['id'] ?>">Cancel</button> -->
                     </form>
                     <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
                         <button class="submit-button button-delete" type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
                     </form>
                 </div>
+                <!-- </div> -->
             <?php endforeach; ?>
         </div>
     <?php endif; ?>

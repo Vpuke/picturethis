@@ -21,6 +21,10 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
     if ($profileImage['size'] >= 3000000) {
         $_SESSION['message'] = "The image you chose is too big";
         redirect('/settings.php');
+    }
+    // makes sure that the right format is used.
+    if ($profileImage['type'] !== 'image/jpeg' && $profileImage['type'] !== 'image/png') {
+        $_SESSION['message'] = 'The image file type is not allowed.';
     } else {
         filter_var($profileImage['name'], FILTER_SANITIZE_STRING);
 

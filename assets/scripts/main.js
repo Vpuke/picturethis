@@ -1,24 +1,7 @@
 "use strict";
 
-// Showing information on image click, profile page.
-const editPost = document.querySelector(".updatePostContent");
-const postContent = document.querySelector(".postContent");
-const postImages = document.querySelectorAll(".profilePostSrc");
 const likeForms = document.querySelectorAll(".likeForm");
 const likeButtons = document.querySelectorAll(".button-liked");
-
-postImages.forEach(postImage =>
-  postImage.addEventListener("click", event => {
-    const id = event.target.dataset.id;
-    const imageInfo = document.querySelector(`.postContent[data-id="${id}"]`);
-    imageInfo.classList.toggle("hidden");
-
-    const editPost = document.querySelector(
-      `.updatePostContent[data-id="${id}"]`
-    );
-    editPost.classList.toggle("hidden");
-  })
-);
 
 // Like function, using Json so I dont have to update page on buttonclick.
 // Also changes color of heart on Like.

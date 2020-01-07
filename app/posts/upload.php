@@ -17,9 +17,12 @@ if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
     $newPostImage = $username . '-' . $dateAndTime . '.' . $fileType;
 
 
-    if ($postImage['size'] >= 5000000) {
+    if ($postImage['size'] >= 3000000) {
         $_SESSION['message'] = "The image you chose is too big";
         redirect('/upload.php');
+    }
+    if ($postImage['type'] !== 'image/jpeg' && $postImage['type'] !== 'image/png') {
+        $_SESSION['message'] = "The image file type is not allowed.";
     } else {
         filter_var($postImage['name'], FILTER_SANITIZE_STRING);
 

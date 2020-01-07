@@ -22,3 +22,8 @@
 .date-bottom {
   margin-top: 5px;
 }
+
+.username-top,
+.username-bottom {
+  font-weight: 700;
+}
