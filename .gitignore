@@ -1,4 +1,4 @@
 .vscode
 .DS_Store
-uploads/*
-images/*
+app/posts/uploads/*
+app/users/images/*
