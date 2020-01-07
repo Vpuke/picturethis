@@ -5,9 +5,16 @@
 } ?>
 
 <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
+<?php $id = (int) $_SESSION['user']['id']; ?>
 
 <section class="settings-page">
     <h2>Settings</h2>
+
+    <div class="profile-image-upload">
+        <?php if (isLoggedIn()) : ?>
+            <img class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+        <?php endif; ?>
+    </div>
 
     <form class="profile-image" action="app/users/profileimage.php" method="post" enctype="multipart/form-data">
         <div class="form-information">

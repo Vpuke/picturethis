@@ -47,12 +47,12 @@
                 <!-- EDIT POST -->
                 <div data-id="<?= $post['id'] ?>" class="updatePostContent hidden">
                     <form action="app/posts/update.php" method="post" enctype="multipart/form-data">
-                        <label for="editPost">Edit post description</label>
+                        <label class="general-label" for="editPost">Edit post description</label>
                         <textarea name="editPost" cols="30" rows="10" placeholder=""></textarea>
-                        <button class="button-primary" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
+                        <button class="submit-button" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
                     </form>
                     <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
-                        <button class="button-primary button-delete" type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
+                        <button class="submit-button button-delete" type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
                     </form>
                 </div>
             <?php endforeach; ?>

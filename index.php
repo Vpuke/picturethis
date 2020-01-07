@@ -11,7 +11,7 @@
             <div class="feedPosts">
                 <div class="info-top-image">
                     <img class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
-                    <p class="username"><?= $post['username'] ?></p>
+                    <p class="username-top"><?= $post['username'] ?></p>
                 </div>
                 <img class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
                 <?php $likes = countLikes($post['id'], $pdo) ?>
@@ -25,11 +25,11 @@
                         </form>
                         <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
                     </div>
-                    <p class="username"><?= $post['username'] ?></p>
-                    <p><?= $post['postContent'] ?></p>
-                    <p><?php $date = $post['createdAt'];
-                        $currentDate = explode("-", $date);
-                        echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
+                    <p class="username-bottom"><?= $post['username'] ?></p>
+                    <p class="content-bottom"><?= $post['postContent'] ?></p>
+                    <p class="date-bottom"><?php $date = $post['createdAt'];
+                                            $currentDate = explode("-", $date);
+                                            echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
