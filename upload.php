@@ -4,13 +4,11 @@
     redirect('/');
 } ?>
 
-
+<?php $allPosts = getAllPosts($pdo); ?>
 
 <section class="upload-page">
 
     <h2>Upload post</h2>
-
-
 
     <form class="upload-form" action="app/posts/upload.php" method="post" enctype="multipart/form-data">
         <div class="form-information">

@@ -10,7 +10,7 @@
         <?php foreach ($allPosts as $post) : ?>
             <div class="feedPosts">
                 <div class="info-top-image">
-                    <img class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+                    <img class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
                     <p class="username-top"><?= $post['username'] ?></p>
                 </div>
                 <img class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">

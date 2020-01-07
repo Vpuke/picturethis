@@ -70,7 +70,6 @@ function userExists(string $username, object $pdo): bool
  * Checks if user is logged in
  *
  * @param int $id
- *
  * @return bool
  */
 function isLoggedIn(): bool
@@ -146,7 +145,7 @@ function getPostsByUser(int $id, object $pdo): array
 function getAllPosts(object $pdo): array
 {
     $statement = $pdo->prepare('SELECT posts.id, posts.postImage, posts.postContent, posts.createdAt,
-                                        users.id as userId, users.username FROM posts JOIN users ON posts.userId = users.id
+                                        users.id as userId, users.username, users.profileimage FROM posts JOIN users ON posts.userId = users.id
                                         ORDER BY createdAt DESC');
 
     if (!$statement) {
@@ -182,6 +181,8 @@ function countLikes(int $postId, object $pdo): string
 
     return $likes["COUNT(*)"];
 }
+
+
 
 
 function isLikedByUser(int $postId, int $userId, object $pdo): bool
