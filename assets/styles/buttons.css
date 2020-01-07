@@ -2,7 +2,7 @@
 .biography-field {
   margin-bottom: 10px;
   padding: 5px;
-  border: 2px solid #ccc;
+  border: 1px solid white;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -12,9 +12,7 @@
 
 .submit-button {
   padding: 5px 15px;
-  background: #800080;
-  background: -webkit-linear-gradient(to right, #ffc0cb, #800080);
-  background: linear-gradient(to right, #ffc0cb, #800080);
+  background: #1c1d1d;
   color: white;
   border: 0 none;
   cursor: pointer;
