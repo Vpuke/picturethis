@@ -28,7 +28,7 @@
         </div>
 
     </div>
-    <a href="settings.php">Edit Profile</a>
+    <button class="submit-button"><a href="settings.php">Edit Profile</a></button>
 
     <!-- POSTS -->
 

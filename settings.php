@@ -11,30 +11,30 @@
 
     <form class="profile-image" action="app/users/profileimage.php" method="post" enctype="multipart/form-data">
         <div class="form-information">
-            <label for="profile-image">Choose your profile image</label>
+            <label class="general-label" for="profile-image">Choose your profile image</label>
             <input class="input-field-information" type="file" accept="image/jpeg, image/png" name="profileimage" required>
-            <button class="button-primary" type="submit" name="button">Upload photo</button>
+            <button class="submit-button" type="submit" name="button">Upload photo</button>
         </div>
     </form>
 
     <form class="user-settings" action="app/users/biography.php" method="post" enctype="multipart/form-data">
         <div class="form-information">
-            <label for="biography">Write some information about yourself</label>
+            <label class="general-label" for="biography">Write some information about yourself</label>
             <textarea class="biography-field" name="biography" placeholder="<?= $user['biography'] ?>" cols="30" rows="10"></textarea>
-            <br> <!-- not able to echo out the bio in placeholder-->
-            <label for="name">Change your Name</label>
+            <!-- not able to echo out the bio in placeholder-->
+            <label class="general-label" for="name">Change your Name</label>
             <input class="input-field-information" type="text" name="edit-name" placeholder="<?= $user['fullname'] ?>">
-            <br> <!-- Not working with SESSION either. -->
-            <label for="username">Change your Username</label>
+            <!-- Not working with SESSION either. -->
+            <label class="general-label" for="username">Change your Username</label>
             <input class="input-field-information" type="text" name="edit-username" placeholder="<?= $user['username'] ?>">
-            <br>
+
             <button class="submit-button" type="submit" name="button">Save your changes</button>
         </div>
     </form>
 
     <form action="app/users/update-email-settings.php" class="user-settings" method="post" enctype="multipart/form-data">
-        <div class="form-information-email">
-            <label for="email">Change your email</label>
+        <div class="form-information">
+            <label class="general-label" for="email">Change your email</label>
             <br>
             <input class="input-field-information" type="email" name="current-email" placeholder="<?= $user['email'] ?>">
             <br>
@@ -47,8 +47,8 @@
     </form>
 
     <form action="app/users/update-password-settings.php" class="user-settings" method="post" enctype="multipart/form-data">
-        <div class="form-information-password">
-            <label for="password">Change your password</label>
+        <div class="form-information">
+            <label class="general-label" for="password">Change your password</label>
             <br>
             <input class="input-field-information" type="password" name="current-password" placeholder="Current Password">
             <br>
@@ -62,7 +62,7 @@
 
     <?php if (isset($_SESSION['message'])) : ?>
         <p><?php echo $_SESSION['message'];
-                unset($_SESSION['message']); ?></p>
+            unset($_SESSION['message']); ?></p>
     <?php endif; ?>
 
 

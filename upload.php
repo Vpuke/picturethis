@@ -16,13 +16,13 @@
 
     <form class="upload-form" action="app/posts/upload.php" method="post" enctype="multipart/form-data">
         <div class="form-information">
-            <label for="upload-image">Choose your post image</label>
+            <label class="general-label" for="upload-image">Choose your post image</label>
             <input class="input-field-information" type="file" accept="image/jpeg, image/png" name="post_image" required>
             <br>
-            <label for="upload-description">Write post description</label>
+            <label class="general-label" for="upload-description">Write post description</label>
             <textarea name="post_content" cols="30" rows="10"></textarea>
             <br>
-            <button class="button-primary" type="submit" name="button">Upload Post</button>
+            <button class="submit-button" type="submit" name="button">Upload Post</button>
         </div>
         <?php if (isset($_SESSION['message'])) : ?>
             <p><?php echo $_SESSION['message'];

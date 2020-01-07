@@ -1,3 +1,19 @@
 .settings-page {
   margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.form-information {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.general-label {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.biography-field {
+  margin-top: 10px;
 }

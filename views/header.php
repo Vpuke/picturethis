@@ -22,6 +22,7 @@ require __DIR__ . '/../app/autoload.php';
     <link rel="stylesheet" href="/assets/styles/buttons.css">
     <link rel="stylesheet" href="/assets/styles/settings.css">
     <link rel="stylesheet" href="/assets/styles/upload.css">
+    <link rel="stylesheet" href="/assets/styles/register.css">
 </head>
 
 <body>

@@ -26,9 +26,10 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
     }
 
     $profileimage = 'placeholder.png';
+    $biography = "Go to Settings or Edit Profile to update your biography";
 
-    $statement = $pdo->prepare('INSERT INTO users (fullname, username, email, password, profileimage) 
-                                VALUES (:fullname, :username, :email, :password, :profileimage)');
+    $statement = $pdo->prepare('INSERT INTO users (fullname, username, email, password, profileimage, biography) 
+                                VALUES (:fullname, :username, :email, :password, :profileimage, :biography)');
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -37,6 +38,7 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':password', $password, PDO::PARAM_STR);
     $statement->bindParam(':profileimage', $profileimage, PDO::PARAM_STR);
+    $statement->bindParam(':biography', $biography, PDO::PARAM_STR);
     $statement->execute();
 
     redirect('/index.php');

@@ -41,28 +41,31 @@
     <article class="loginPage">
         <div class="loginPageText">
             <h1>A new way to access your friends photos.</h1>
+        </div>
+        <div class="loginPageText">
             <h2>Login or sign up!</h2>
         </div>
 
         <form class="index-form" action="app/users/login.php" method="post">
 
             <div class="form-information">
-                <label for="email">Username:</label>
-                <input class="input-field-login" type="username" name="username" id="username" placeholder="Enter Username" required>
+                <label class="general-label" for="email">Username</label>
+                <input class="input-field-information" type="username" name="username" id="username" placeholder="Enter Username" required>
             </div>
 
             <div class="form-information">
-                <label for="password">Password:</label>
-                <input class="input-field-login" type="password" name="password" id="password" placeholder="Enter Password" required>
+                <label class="general-label" for="password">Password</label>
+                <input class="input-field-information" type="password" name="password" id="password" placeholder="Enter Password" required>
             </div>
 
             <button type="submit" class="submit-button" name="button">Login</button>
-            <p>Do not have an account? Sign up <a href="/registeruser.php">here</a></p>
+
             <?php if (isset($_SESSION['message'])) : ?>
                 <p><?php echo $_SESSION['message'];
                     unset($_SESSION['message']); ?></p>
             <?php endif; ?>
         </form>
+        <p class="account">Do not have an account? Sign up <a href="/registeruser.php">here</a></p>
 
     </article>
 

@@ -1,0 +1,23 @@
+.input-field-information,
+.biography-field {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.submit-button:focus {
+  border-color: #333;
+}
+
+.submit-button {
+  padding: 5px 15px;
+  background: #800080;
+  background: -webkit-linear-gradient(to right, #ffc0cb, #800080);
+  background: linear-gradient(to right, #ffc0cb, #800080);
+  color: white;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}

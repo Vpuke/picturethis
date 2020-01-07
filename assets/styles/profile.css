@@ -58,6 +58,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 10%;
+  margin-top: 10px;
 }
 
 .profile-info {
