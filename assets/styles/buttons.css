@@ -19,3 +19,16 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
+
+.button-delete {
+  width: 102px;
+}
+
+.edit-button {
+  margin-right: 20px;
+}
+
+.update-post,
+.cancel-button {
+  margin-top: 10px;
+}

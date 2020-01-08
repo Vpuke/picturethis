@@ -35,33 +35,43 @@
     <?php if (isLoggedIn()) : ?>
         <div class="profileWrapper">
             <?php foreach ($posts as $post) : ?>
-                <!-- <div data-id="<?= $post['id'] ?>" class="profilePost"> -->
-                <img data-id="<?= $post['id'] ?>" class="profilePostSrc" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
-                <div data-id="<?= $post['id'] ?>" class="postContent hidden">
+                <div data-id="<?= $post['id'] ?>" class="profilePost">
+                    <img data-id="<?= $post['id'] ?>" class="profilePostSrc" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                    <div data-id="<?= $post['id'] ?>" class="postContent ">
+                        <?php $likes = countLikes($post['id'], $pdo) ?>
+                        <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
+                        <div class="info-bottom-image">
+                            <div class="likes-position">
+                                <form data-id="<?= $post['id'] ?>" class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="postId" value="<?= $post['id'] ?>">
+                                    <button data-id="<?= $post['id'] ?>" class=" button-likes like <?= $isLikedByUser ? 'hidden' : '' ?>" type=" submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
+                                    <button data-id="<?= $post['id'] ?>" class=" button-liked like <?= $isLikedByUser ? '' : 'hidden' ?>" type=" submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
+                                </form>
+                                <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
+                            </div>
+                            <p><?php echo $post['postContent']; ?></p>
+                            <p><?php $date = $post['createdAt'];
+                                $currentDate = explode("-", $date);
+                                echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
+                        </div>
+                        <!-- EDIT POST -->
 
-                    <p><?php $date = $post['createdAt'];
-                        $currentDate = explode("-", $date);
-                        echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
-
-                    <p><?php echo $post['postContent']; ?></p>
+                        <div data-id="<?= $post['id'] ?>" class="updatePostContent ">
+                            <form class="edit-post-form" action="app/posts/update.php" method="post" enctype="multipart/form-data">
+                                <label class="general-label hidden" for="editPost">Edit post description</label>
+                                <textarea class="textarea-post hidden" name="editPost" cols="30" rows="10" placeholder=""></textarea>
+                                <button data-id="<?= $post['id'] ?>" class="submit-button edit-button " type="button" name="postId" value="<?= $post['id'] ?>">Edit Post</button>
+                                <button class="submit-button update-post hidden" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
+                                <button data-id="<?= $post['id'] ?>" class="submit-button cancel-button hidden" type="button" name="postId" value="<?= $post['id'] ?>">Cancel</button>
+                            </form>
+                            <form class="delete-button-form" action="app/posts/delete.php" method="post" enctype="multipart/form-data">
+                                <button class="submit-button button-delete " type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
+                            </form>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
                 </div>
-                <!-- EDIT POST -->
-                <!-- <button data-id="<?= $post['id'] ?>" class="submit-button edit-button hidden" type="button" name="postId" value="<?= $post['id'] ?>">Edit Post</button> -->
-                <div data-id="<?= $post['id'] ?>" class="updatePostContent hidden">
-                    <form action="app/posts/update.php" method="post" enctype="multipart/form-data">
-                        <label class="general-label" for="editPost">Edit post description</label>
-                        <textarea name="editPost" cols="30" rows="10" placeholder=""></textarea>
-                        <button class="submit-button" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
-                        <!-- <button data-id="<?= $post['id'] ?>" class="submit-button cancel-button" type="button" name="postId" value="<?= $post['id'] ?>">Cancel</button> -->
-                    </form>
-                    <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
-                        <button class="submit-button button-delete" type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
-                    </form>
-                </div>
-                <!-- </div> -->
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
+            <?php endif; ?>
 </section>
 
 

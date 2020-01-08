@@ -3,6 +3,50 @@
 const likeForms = document.querySelectorAll(".likeForm");
 const likeButtons = document.querySelectorAll(".button-liked");
 
+const editPosts = document.querySelectorAll(".updatePostContent");
+// const deleteButtons = document.querySelectorAll(".button-delete");
+
+// Function to toggle hidden on buttons and form.
+
+editPosts.forEach(editPost => {
+  let submitButton = editPost.querySelector(".edit-button");
+
+  submitButton.addEventListener("click", event => {
+    const target = event.target.parentElement.parentElement;
+    const postLabel = target.querySelector(".general-label");
+    postLabel.classList.toggle("hidden");
+    const textArea = target.querySelector(".textarea-post");
+    textArea.classList.toggle("hidden");
+    const updatePost = target.querySelector(".update-post");
+    updatePost.classList.toggle("hidden");
+    const cancelPost = target.querySelector(".cancel-button");
+    cancelPost.classList.toggle("hidden");
+    const deletePost = target.querySelector(".button-delete");
+    deletePost.classList.toggle("hidden");
+    const editButton = target.querySelector(".edit-button");
+    editButton.classList.toggle("hidden");
+  });
+
+  let cancelButton = editPost.querySelector(".cancel-button");
+
+  cancelButton.addEventListener("click", event => {
+    const target = event.target.parentElement.parentElement;
+
+    const postLabel = target.querySelector(".general-label");
+    postLabel.classList.toggle("hidden");
+    const textArea = target.querySelector(".textarea-post");
+    textArea.classList.toggle("hidden");
+    const updatePost = target.querySelector(".update-post");
+    updatePost.classList.toggle("hidden");
+    const cancelPost = target.querySelector(".cancel-button");
+    cancelPost.classList.toggle("hidden");
+    const deletePost = target.querySelector(".button-delete");
+    deletePost.classList.toggle("hidden");
+    const editButton = target.querySelector(".edit-button");
+    editButton.classList.toggle("hidden");
+  });
+});
+
 // Like function, using Json so I dont have to update page on buttonclick.
 // Also changes color of heart on Like.
 
