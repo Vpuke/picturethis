@@ -1,5 +1,4 @@
 <?php require __DIR__ . '/views/header.php'; ?>
-
 <?php if (isLoggedIn()) : ?>
 
     <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>

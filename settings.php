@@ -28,10 +28,8 @@
         <div class="form-information">
             <label class="general-label" for="biography">Write some information about yourself</label>
             <textarea class="biography-field" name="biography" placeholder="<?= $user['biography'] ?>" cols="30" rows="10"></textarea>
-            <!-- not able to echo out the bio in placeholder-->
             <label class="general-label" for="name">Change your Name</label>
             <input class="input-field-information" type="text" name="edit-name" placeholder="<?= $user['fullname'] ?>">
-            <!-- Not working with SESSION either. -->
             <label class="general-label" for="username">Change your Username</label>
             <input class="input-field-information" type="text" name="edit-username" placeholder="<?= $user['username'] ?>">
 

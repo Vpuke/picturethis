@@ -29,6 +29,7 @@
 
     </div>
     <button class="submit-button"><a href="settings.php">Edit Profile</a></button>
+    <span></span>
 
     <!-- POSTS -->
 
@@ -49,10 +50,10 @@
                                 </form>
                                 <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
                             </div>
-                            <p><?php echo $post['postContent']; ?></p>
-                            <p><?php $date = $post['createdAt'];
-                                $currentDate = explode("-", $date);
-                                echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
+                            <p class="content-bottom"><?php echo $post['postContent']; ?></p>
+                            <p class="date-bottom"><?php $date = $post['createdAt'];
+                                                    $currentDate = explode("-", $date);
+                                                    echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
                         </div>
                         <!-- EDIT POST -->
 

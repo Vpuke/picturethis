@@ -32,3 +32,13 @@
 .cancel-button {
   margin-top: 10px;
 }
+
+.button-liked {
+  background: none;
+  border: none;
+}
+
+.button-likes {
+  background: none;
+  border: none;
+}

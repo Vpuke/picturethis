@@ -32,3 +32,8 @@ h1 {
 h2 {
   font-size: 21px;
 }
+
+/* MediaQuery */
+
+@media all and (min-width: 768px) {
+}

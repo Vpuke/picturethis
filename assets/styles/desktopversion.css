@@ -1,0 +1,23 @@
+/* MediaQuery */
+
+@media all and (min-width: 768px) {
+  section {
+    width: 50vw;
+  }
+  body {
+    margin: auto;
+    width: 50vw;
+  }
+  .footer {
+    width: 50%;
+  }
+  nav {
+    width: 50%;
+  }
+  .feedPosts {
+    width: 50vw;
+  }
+  .profileWrapper {
+    width: 50vw;
+  }
+}
