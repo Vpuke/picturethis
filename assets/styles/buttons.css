@@ -51,3 +51,7 @@
   background: none;
   border: none;
 }
+
+.button-liked i {
+  color: red;
+}
