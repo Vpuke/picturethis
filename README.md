@@ -1,9 +1,9 @@
 # Picture This
-<img src="https://media.giphy.com/media/6LzPPnutAquju/giphy.gif" width="100%">
+<img src="https://media.giphy.com/media/6LzPPnutAquju/giphy.gif" width="100%" height ="700vh">
 
 ### About
 
-This is a project where we were suppose to build our own instagram copy. 
+In this assignment we are going to build an Instagram clone. 
 
 ### Requirements
 
