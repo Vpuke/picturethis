@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
+if (isLoggedIn() && isset($_FILES['post-image'], $_POST['post-content'])) {
 
-    $postDescription = trim(filter_var($_POST['post_content'], FILTER_SANITIZE_STRING));
-    $postImage = $_FILES['post_image'];
+    $postDescription = trim(filter_var($_POST['post-content'], FILTER_SANITIZE_STRING));
+    $postImage = $_FILES['post-image'];
     $username = $_SESSION['user']['username'];
     $id = (int) $_SESSION['user']['id'];
     $pathToFile = __DIR__ . '/uploads/';
-    $fileType = pathinfo($_FILES['post_image']['name'], PATHINFO_EXTENSION);
+    $fileType = pathinfo($_FILES['post-image']['name'], PATHINFO_EXTENSION);
     $dateAndTime = date('d-M-Y-H:i:s');
 
     $newPostImage = $username . '-' . $dateAndTime . '.' . $fileType;
@@ -43,7 +43,7 @@ if (isLoggedIn() && isset($_FILES['post_image'], $_POST['post_content'])) {
         move_uploaded_file($postImage['tmp_name'], $pathToFile . $newPostImage);
     }
     $_SESSION['message'] = "Your post was successfully uploaded";
-    $_SESSION['posts']['post_image'] = $newPostImage;
+    $_SESSION['posts']['post-image'] = $newPostImage;
     redirect('/profile.php');
 }
 redirect('/');

@@ -34,7 +34,7 @@
     <!-- POSTS -->
 
     <?php if (isLoggedIn()) : ?>
-        <div class="profileWrapper">
+        <div class="profile-wrapper">
             <?php foreach ($posts as $post) : ?>
                 <div data-id="<?= $post['id'] ?>" class="profilePost">
                     <img data-id="<?= $post['id'] ?>" class="profilePostSrc" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
