@@ -1,7 +1,4 @@
-<?php
-// Always start by loading the default application setup.
-require __DIR__ . '/../app/autoload.php';
-?>
+<?php require __DIR__ . '/../app/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,4 +24,6 @@ require __DIR__ . '/../app/autoload.php';
 </head>
 
 <body>
-    <?php require __DIR__ . '/navigation.php'; ?>
+    <?php if (isLoggedIn()) : ?>
+        <?php require __DIR__ . '/navigation.php'; ?>
+    <?php endif; ?>

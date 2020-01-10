@@ -9,15 +9,55 @@
     width: 50vw;
   }
   .footer {
-    width: 50%;
+    width: 100%;
   }
   nav {
-    width: 50%;
+    width: 100%;
   }
   .feedPosts {
     width: 50vw;
   }
   .profileWrapper {
     width: 50vw;
+  }
+
+  .input-field-information {
+    width: 400px;
+  }
+
+  .profile-image-src {
+    width: 150px;
+    height: 150px;
+  }
+  .profile-image-src-small {
+    width: 70px;
+    height: 70px;
+  }
+
+  .info-top-image p {
+    margin-top: 35px;
+  }
+
+  .navbar-brand {
+    font-size: 40px;
+  }
+
+  .submit-button {
+    width: 200px;
+  }
+
+  .logotype h1 {
+    font-size: 55px;
+  }
+  .submit-button {
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    width: 400px;
+  }
+
+  .profilePostSrc {
+    width: 100%;
   }
 }

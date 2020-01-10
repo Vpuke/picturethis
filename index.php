@@ -1,4 +1,5 @@
 <?php require __DIR__ . '/views/header.php'; ?>
+
 <?php if (isLoggedIn()) : ?>
 
     <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
@@ -38,6 +39,9 @@
 <?php else : ?>
 
     <article class="loginPage">
+        <div class="logotype">
+            <h1>Picture This</h1>
+        </div>
         <div class="loginPageText">
             <h1>A new way to access your friends photos.</h1>
         </div>
@@ -49,12 +53,12 @@
 
             <div class="form-information">
                 <label class="general-label" for="email">Username</label>
-                <input class="input-field-information" type="username" name="username" id="username" placeholder="Enter Username" required>
+                <input class="input-field-information" type="username" name="username" id="username" placeholder="Enter your Username" required>
             </div>
 
             <div class="form-information">
                 <label class="general-label" for="password">Password</label>
-                <input class="input-field-information" type="password" name="password" id="password" placeholder="Enter Password" required>
+                <input class="input-field-information" type="password" name="password" id="password" placeholder="Enter your Password" required>
             </div>
 
             <button type="submit" class="submit-button" name="button">Login</button>
