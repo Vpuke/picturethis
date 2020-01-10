@@ -22,11 +22,7 @@ if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // Makes sure that current password matches password in database
-
     if (password_verify($currentPassword, $user['password'])) {
-
-        // Makes sure that new password is repeated twice, else session message
 
         if ($newPassword == $repeatPassword) {
 

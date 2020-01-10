@@ -10,7 +10,7 @@
 <section class="settings-page">
     <h2>Settings</h2>
 
-    <?php require __DIR__ . '/views/usermessage.php'; ?>
+    <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
 
     <div class="profile-image-upload">
         <?php if (isLoggedIn()) : ?>

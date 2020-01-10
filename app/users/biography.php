@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// update biography
-
 if (isLoggedIn() && isset($_POST['biography'])) {
 
     $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
@@ -24,8 +22,6 @@ if (isLoggedIn() && isset($_POST['biography'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // MAKING SURE THAT IF BIO IS EMPTY IT DOESNT UPDATE DATABASE WITH NULL. SINCE YOU CAN CHANGE NAME AND USERNAME IN SAME FORM
-
     if ($_POST['biography'] == "") {
         $biography = $_SESSION['user']['biography'];
     } else {
@@ -42,7 +38,7 @@ if (isLoggedIn() && isset($_POST['biography'])) {
 
         $_SESSION['message'] = "Your personal settings has been updated";
     }
-    // MAKING SURE THAT IF NAME IS EMPTY IT DOESNT UPDATE DATABASE WITH NULL, SINCE YOU CAN CHANGE BIO AND USERNAME IN SAME FORM.
+
     if ($_POST['edit-name'] == "") {
         $name = $_SESSION['user']['fullname'];
     } else {
@@ -59,8 +55,6 @@ if (isLoggedIn() && isset($_POST['biography'])) {
 
         $_SESSION['message'] = "Your personal settings has been updated";
     }
-
-    // Making sure that if username is empty it doesnt update database with null, since you can change bio and name in the same form.
 
     if ($_POST['edit-username'] == "") {
         $username = $_SESSION['user']['username'];
@@ -80,5 +74,3 @@ if (isLoggedIn() && isset($_POST['biography'])) {
 
     redirect('/settings.php');
 }
-
-// FIGURE OUT HOW TO INCLUDE NAME AND USERNAME IN THIS SESSION.

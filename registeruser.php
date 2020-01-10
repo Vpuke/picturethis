@@ -8,7 +8,7 @@
         </div>
 
         <h2>Sign up now!</h2>
-
+        <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
         <form role="form" method="post" action="app/users/registeruser.php">
 
             <div class="form-information">
@@ -38,7 +38,7 @@
 
             <button type="submit-button" class="submit-button">Sign up!</button>
 
-            <p class="account">Already have an account? Sign in <a href="/index.php">here</a></p>
+            <p class="account">Already have an account? Sign in <a href="/index.php"><span>here!</span></a></p>
 
         </form>
     </div>

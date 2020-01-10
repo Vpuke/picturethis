@@ -12,23 +12,18 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
     $pathToFile = __DIR__ . '/images/';
     $fileType = pathinfo($_FILES['profileimage']['name'], PATHINFO_EXTENSION);
 
-    //Created new variable for new profile image username with date of upload and current filetype of image.
-
     $newProfileImage = $username . '-' . date('ymd') . '.' . $fileType;
-
-    // Makes sure that the size of the image is smaller than 3mb
 
     if ($profileImage['size'] >= 3000000) {
         $_SESSION['message'] = "The image you chose is too big";
         redirect('/settings.php');
     }
-    // makes sure that the right format is used.
+
     if ($profileImage['type'] !== 'image/jpeg' && $profileImage['type'] !== 'image/png') {
         $_SESSION['message'] = 'The image file type is not allowed.';
     } else {
         filter_var($profileImage['name'], FILTER_SANITIZE_STRING);
 
-        // Query for updating database with new profile image.
         $statement = $pdo->prepare('UPDATE users SET profileimage = :profileimage WHERE id = :id');
 
         if (!$statement) {
@@ -40,7 +35,6 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
 
         $statement->execute();
 
-        // Moves the image to correct folder and     
         move_uploaded_file($profileImage['tmp_name'], $pathToFile . $newProfileImage);
     }
     $_SESSION['message'] = "Your profile image was successfully changed";

@@ -20,7 +20,7 @@
             <br>
             <button class="submit-button" type="submit" name="button">Upload Post</button>
         </div>
-        <?php require __DIR__ . '/views/usermessage.php'; ?>
+        <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
     </form>
 
 </section>

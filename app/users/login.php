@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// checking if both email and password in entered in form.
-
 if (isset($_POST['username'], $_POST['password'])) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 

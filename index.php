@@ -25,7 +25,7 @@
                         </form>
                         <p class="likeCount<?= $post['id'] ?>"><?php echo $likes ?></p>
                     </div>
-                    <p class="username-bottom"><?= $post['username'] ?></p>
+                    <p class="username-bottom"><?= $post['username'] ?> </p>
                     <p class="content-bottom"><?= $post['postContent'] ?></p>
                     <p class="date-bottom"><?php $date = $post['createdAt'];
                                             $currentDate = explode("-", $date);
@@ -60,8 +60,8 @@
             </div>
             <button type="submit" class="submit-button" name="button">Login</button>
         </form>
-        <?php require __DIR__ . '/views/usermessage.php'; ?>
-        <p class="account">Do not have an account? Sign up <a href="/registeruser.php">here</a></p>
+        <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?><p>
+                <p class="account">Do not have an account? Sign up <a href="/registeruser.php"><span>here!</span></a></p>
 
     </article>
 

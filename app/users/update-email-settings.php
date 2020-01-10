@@ -22,11 +22,8 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // Makes sure that current email matches email in database.
 
     if ($currentEmail == $user['email']) {
-
-        // Makes sure that new email is repeated twice. else, session message.
 
         if ($newEmail == $repeatEmail) {
 
