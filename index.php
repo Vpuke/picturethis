@@ -50,24 +50,17 @@
         </div>
 
         <form class="index-form" action="app/users/login.php" method="post">
-
             <div class="form-information">
                 <label class="general-label" for="email">Username</label>
                 <input class="input-field-information" type="username" name="username" id="username" placeholder="Enter your Username" required>
             </div>
-
             <div class="form-information">
                 <label class="general-label" for="password">Password</label>
                 <input class="input-field-information" type="password" name="password" id="password" placeholder="Enter your Password" required>
             </div>
-
             <button type="submit" class="submit-button" name="button">Login</button>
-
-            <?php if (isset($_SESSION['message'])) : ?>
-                <p><?php echo $_SESSION['message'];
-                    unset($_SESSION['message']); ?></p>
-            <?php endif; ?>
         </form>
+        <?php require __DIR__ . '/views/usermessage.php'; ?>
         <p class="account">Do not have an account? Sign up <a href="/registeruser.php">here</a></p>
 
     </article>

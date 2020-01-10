@@ -37,11 +37,9 @@
             </div>
 
             <button type="submit-button" class="submit-button">Sign up!</button>
+
             <p class="account">Already have an account? Sign in <a href="/index.php">here</a></p>
-            <?php if (isset($_SESSION['message'])) : ?>
-                <p><?php echo $_SESSION['message'];
-                    unset($_SESSION['message']); ?></p>
-            <?php endif; ?>
+
         </form>
     </div>
 

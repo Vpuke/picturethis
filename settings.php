@@ -10,6 +10,8 @@
 <section class="settings-page">
     <h2>Settings</h2>
 
+    <?php require __DIR__ . '/views/usermessage.php'; ?>
+
     <div class="profile-image-upload">
         <?php if (isLoggedIn()) : ?>
             <img class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
@@ -55,13 +57,6 @@
             <button class="submit-button" type="submit">Save changes</button>
         </div>
     </form>
-
-    <?php if (isset($_SESSION['message'])) : ?>
-        <p><?php echo $_SESSION['message'];
-            unset($_SESSION['message']); ?></p>
-    <?php endif; ?>
-
-
 </section>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

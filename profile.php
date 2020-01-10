@@ -29,7 +29,7 @@
 
     </div>
     <button class="submit-button"><a href="settings.php">Edit Profile</a></button>
-    <span></span>
+    <?php require __DIR__ . '/views/usermessage.php'; ?>
 
     <!-- POSTS -->
 
