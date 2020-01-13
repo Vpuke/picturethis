@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-size: 14px;
   font-family: "Roboto", sans-serif;
-  /* font-family: 'Lobster', cursive; */
 }
 
 body {
@@ -15,8 +14,6 @@ body {
   justify-content: center;
   background-color: #070909;
   color: white;
-  /* border-left: #1c1d1d solid 1px;
-  border-right: #1c1d1d solid 1px; */
 }
 
 section {

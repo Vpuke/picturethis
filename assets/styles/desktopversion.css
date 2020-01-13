@@ -14,7 +14,7 @@
   nav {
     width: 100%;
   }
-  .feedPosts {
+  .feed-posts {
     width: 50vw;
   }
   .profile-wrapper {
@@ -57,7 +57,7 @@
     width: 400px;
   }
 
-  .profilePostSrc {
+  .profile-post-src {
     width: 100%;
   }
 }

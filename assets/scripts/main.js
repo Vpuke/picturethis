@@ -3,7 +3,7 @@
 const likeForms = document.querySelectorAll(".likeForm");
 const likeButtons = document.querySelectorAll(".button-liked");
 
-const editPosts = document.querySelectorAll(".updatePostContent");
+const editPosts = document.querySelectorAll(".update-post-content");
 // const deleteButtons = document.querySelectorAll(".button-delete");
 
 // Function to toggle hidden on buttons and form.

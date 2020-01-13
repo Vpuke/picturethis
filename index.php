@@ -6,9 +6,9 @@
     <?php $allPosts = getAllPosts($pdo); ?>
 
 
-    <section class="userFeed">
+    <section class="user-feed">
         <?php foreach ($allPosts as $post) : ?>
-            <div class="feedPosts">
+            <div class="feed-posts">
                 <div class="info-top-image">
                     <img class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
                     <p class="username-top"><?= $post['username'] ?></p>
@@ -38,14 +38,14 @@
     <?php require __DIR__ . '/views/footer.php'; ?>
 <?php else : ?>
 
-    <article class="loginPage">
+    <article class="login-page">
         <div class="logotype">
             <h1>Picture This</h1>
         </div>
-        <div class="loginPageText">
+        <div>
             <h1>A new way to access your friends photos.</h1>
         </div>
-        <div class="loginPageText">
+        <div>
             <h2>Login or sign up!</h2>
         </div>
 

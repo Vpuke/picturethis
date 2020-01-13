@@ -28,7 +28,10 @@
         </div>
 
     </div>
-    <button class="submit-button"><a href="settings.php">Edit Profile</a></button>
+
+    <form>
+        <input type="button" class="submit-button" value="Edit Profile" onclick="window.location.href='settings.php'">
+    </form>
     <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
 
     <!-- POSTS -->
@@ -36,9 +39,9 @@
     <?php if (isLoggedIn()) : ?>
         <div class="profile-wrapper">
             <?php foreach ($posts as $post) : ?>
-                <div data-id="<?= $post['id'] ?>" class="profilePost">
-                    <img data-id="<?= $post['id'] ?>" class="profilePostSrc" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
-                    <div data-id="<?= $post['id'] ?>" class="postContent ">
+                <div data-id="<?= $post['id'] ?>" class="profile-post">
+                    <img data-id="<?= $post['id'] ?>" class="profile-post-src" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                    <div data-id="<?= $post['id'] ?>" class="post-content ">
                         <?php $likes = countLikes($post['id'], $pdo) ?>
                         <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
                         <div class="info-bottom-image">
@@ -57,7 +60,7 @@
                         </div>
                         <!-- EDIT POST -->
 
-                        <div data-id="<?= $post['id'] ?>" class="updatePostContent ">
+                        <div data-id="<?= $post['id'] ?>" class="update-post-content ">
                             <form class="edit-post-form" action="app/posts/update.php" method="post" enctype="multipart/form-data">
                                 <label class="general-label hidden" for="editPost">Edit post description</label>
                                 <textarea class="textarea-post hidden" name="editPost" cols="30" rows="10" placeholder=""></textarea>
