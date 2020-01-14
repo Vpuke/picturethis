@@ -10,13 +10,13 @@ if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
     $postId = $_POST['postId'];
     $id = (int) $_SESSION['user']['id'];
 
-
-    $statement = $pdo->prepare('UPDATE posts SET postContent = :postContent WHERE id = :id');
+    $statement = $pdo->prepare('UPDATE posts SET postContent = :postContent WHERE id = :id AND userId = :userId');
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
+    $statement->bindParam(':userId', $id, PDO::PARAM_INT);
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
     $statement->bindParam(':postContent', $editPost, PDO::PARAM_STR);
 
