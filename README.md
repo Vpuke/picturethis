@@ -22,6 +22,11 @@ In this assignment we are going to build an Instagram clone.
 
 * As a user I should be able to Delete my account
 
+
 ### Code review
 
 * [Jesper Lundqvist](https://github.com/jesperlndqvst) (WU19)
+
+### License
+
+This project is licensed under MIT license, please see further details [here](https://github.com/Vpuke/picturethis/blob/master/LICENSE)
