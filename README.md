@@ -22,10 +22,21 @@ In this assignment we are going to build an Instagram clone.
 
 * As a user I should be able to Delete my account
 
+### Getting started
+
+* First you have to clone the repository picturethis, either via [this link](https://github.com/vpuke/picturethis) in Github desktop or `git clone https://github.com/vpuke/picturethis.git`in the terminal of your choice.
+* Create server in terminal of your choice while in root of repository: ```PHP -S Localhost:1337```.
+
+### Testers
+
 
 ### Code review
 
 * [Jesper Lundqvist](https://github.com/jesperlndqvst) (WU19)
+
+### Made by
+
+* [Viktor Puke](https://github.com/vpuke) (WU19)
 
 ### License
 
