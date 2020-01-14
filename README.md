@@ -17,3 +17,11 @@ In this assignment we are going to build an Instagram clone.
 * As a user I should be able to delete my posts.
 * As a user I should be able to like posts.
 * As a user I should be able to remove likes from posts.
+
+### Extra
+
+* As a user I should be able to Delete my account
+
+### Code review
+
+* [Jesper Lundqvist](https://github.com/jesperlndqvst) (WU19)
