@@ -5,7 +5,6 @@
     <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
     <?php $allPosts = getAllPosts($pdo); ?>
 
-
     <section class="user-feed">
         <?php foreach ($allPosts as $post) : ?>
             <div class="feed-posts">
@@ -63,8 +62,5 @@
         <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?><p>
                 <p class="account">Do not have an account? Sign up <a href="/registeruser.php"><span>here!</span></a></p>
     </article>
-
-
-
 
 <?php endif; ?>
