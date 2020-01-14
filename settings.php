@@ -6,10 +6,11 @@
 
 <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
 <?php $id = (int) $_SESSION['user']['id']; ?>
+<?php $posts = getPostsByUser($id, $pdo); ?>
 
 <section class="settings-page">
-    <h2>Settings</h2>
 
+    <h2>Settings</h2>
     <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
 
     <div class="profile-image-upload">
@@ -57,6 +58,15 @@
             <button class="submit-button" type="submit">Save changes</button>
         </div>
     </form>
+
+    <form class="user-settings" action="app/users/deleteaccount.php" method="post" enctype="multipart/form-data">
+        <div class="form-information">
+            <label class="general-label-settings hidden" for="delete-button">Are you sure you want to delete your account?</label>
+            <button class="submit-button delete-button-settings-real hidden" type="submit" name="delete-button">Delete Account</button>
+        </div>
+    </form>
+    <button class="submit-button delete-button-settings">Delete Account</button>
+    <button class="submit-button cancel-button-settings hidden">Cancel</button>
 </section>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

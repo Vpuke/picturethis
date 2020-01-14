@@ -46,7 +46,7 @@
                         <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
                         <div class="info-bottom-image">
                             <div class="likes-position">
-                                <form data-id="<?= $post['id'] ?>" class="likeForm" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                                <form data-id="<?= $post['id'] ?>" class="like-form" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="postId" value="<?= $post['id'] ?>">
                                     <button data-id="<?= $post['id'] ?>" class=" button-likes like <?= $isLikedByUser ? 'hidden' : '' ?>" type=" submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>
                                     <button data-id="<?= $post['id'] ?>" class=" button-liked like <?= $isLikedByUser ? '' : 'hidden' ?>" type=" submit" name="postId" value="<?= $post['id'] ?>"><i class="fas fa-heart"></i></button>

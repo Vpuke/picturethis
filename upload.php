@@ -14,10 +14,8 @@
         <div class="form-information">
             <label class="general-label" for="upload-image">Choose your post image</label>
             <input class="input-field-information " type="file" accept="image/jpeg, image/png" name="post-image" required>
-            <br>
             <label class="general-label" for="upload-description">Write post description</label>
-            <textarea name="post-content" cols="30" rows="10"></textarea>
-            <br>
+            <textarea class="biography-field" name="post-content" cols="30" rows="10"></textarea>
             <button class="submit-button" type="submit" name="button">Upload Post</button>
         </div>
         <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>

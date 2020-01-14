@@ -1,12 +1,32 @@
 "use strict";
 
-const likeForms = document.querySelectorAll(".likeForm");
+const likeForms = document.querySelectorAll(".like-form");
 const likeButtons = document.querySelectorAll(".button-liked");
-
 const editPosts = document.querySelectorAll(".update-post-content");
-// const deleteButtons = document.querySelectorAll(".button-delete");
+const deleteButton = document.querySelector(".delete-button-settings");
+const deleteButtonReal = document.querySelector(".delete-button-settings-real");
+const cancelButton = document.querySelector(".cancel-button-settings");
+const label = document.querySelector(".general-label-settings");
 
-// Function to toggle hidden on buttons and form.
+if (deleteButton) {
+  deleteButton.addEventListener("click", event => {
+    deleteButtonReal.classList.toggle("hidden");
+    deleteButton.classList.toggle("hidden");
+    cancelButton.classList.toggle("hidden");
+    label.classList.toggle("hidden");
+  });
+}
+
+if (cancelButton) {
+  cancelButton.addEventListener("click", event => {
+    deleteButtonReal.classList.toggle("hidden");
+    deleteButton.classList.toggle("hidden");
+    cancelButton.classList.toggle("hidden");
+    label.classList.toggle("hidden");
+  });
+}
+
+// Function to toggle hidden on buttons and form on profile
 
 editPosts.forEach(editPost => {
   let submitButton = editPost.querySelector(".edit-button");

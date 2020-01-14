@@ -8,7 +8,6 @@
             <li class="nav-item">
                 <a class="navbar-brand" href="/index.php"><?php echo $config['title']; ?></a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="/app/users/logout.php"><i class="fas fa-sign-out-alt"></i></a>
             </li>

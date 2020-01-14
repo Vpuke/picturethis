@@ -51,3 +51,13 @@
 .button-liked i {
   color: red;
 }
+
+.delete-button-settings,
+.delete-button-settings-real {
+  width: 113px;
+  margin-top: 10px;
+}
+
+.cancel-button-settings {
+  margin-top: 10px;
+}

@@ -8,6 +8,7 @@ if (!function_exists('redirect')) {
      * @param string $path
      * @return void
      */
+
     function redirect(string $path)
     {
         header("Location: ${path}");
