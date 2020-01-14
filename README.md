@@ -20,7 +20,7 @@ In this assignment we are going to build an Instagram clone.
 
 ### Extra
 
-* As a user I should be able to Delete my account
+* As a user I should be able to delete my account
 
 ### Getting started
 
@@ -30,8 +30,8 @@ In this assignment we are going to build an Instagram clone.
 ### Testers
 
 * [Viktor Sjöblom](https://github.com/viktorsjoblom) 
-*
-*
+* [Henrik Björkvall](https://github.com/henricbjork)
+* [Erik Johannesson] (https://github.com/Erik-joh)
 
 ### Code review
 
