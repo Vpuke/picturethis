@@ -29,14 +29,17 @@ In this assignment we are going to build an Instagram clone.
 
 ### Testers
 
+* [Viktor Sjöblom](https://github.com/viktorsjoblom) 
+*
+*
 
 ### Code review
 
-* [Jesper Lundqvist](https://github.com/jesperlndqvst) (WU19)
+* [Jesper Lundqvist](https://github.com/jesperlndqvst) 
 
 ### Made by
 
-* [Viktor Puke](https://github.com/vpuke) (WU19)
+* [Viktor Puke](https://github.com/vpuke) 
 
 ### License
 
