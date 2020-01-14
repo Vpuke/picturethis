@@ -31,7 +31,7 @@ In this assignment we are going to build an Instagram clone.
 
 * [Viktor Sjöblom](https://github.com/viktorsjoblom) 
 * [Henrik Björkvall](https://github.com/henricbjork)
-* [Erik Johannesson] (https://github.com/Erik-joh)
+* [Erik Johannesson](https://github.com/Erik-joh)
 
 ### Code review
 
