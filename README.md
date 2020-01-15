@@ -3,7 +3,7 @@
 
 ### About
 
-In this assignment we are going to build an Instagram clone. 
+In this assignment we are going to build an Instagram clone using PHP, HTML, CSS, Javascript and SQLite database.
 
 ### Requirements
 
@@ -26,6 +26,7 @@ In this assignment we are going to build an Instagram clone.
 
 * First you have to clone the repository picturethis, either via [this link](https://github.com/vpuke/picturethis) in Github desktop or `git clone https://github.com/vpuke/picturethis.git`in the terminal of your choice.
 * Create server in terminal of your choice while in root of repository: ```PHP -S Localhost:1337```.
+* Open Browser and write ```localhost:1337``` in address field.
 
 ### Testers
 
