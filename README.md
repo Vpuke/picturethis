@@ -20,7 +20,7 @@ In this assignment we are going to build an Instagram clone.
 
 ### Extra
 
-* As a user I should be able to delete my account
+* As a user I'm able to delete my account along with all posts and comments.
 
 ### Getting started
 
