@@ -11,7 +11,7 @@ const label = document.querySelector(".general-label-settings");
 // function to toggle hidden on buttons in settings / deletebutton
 
 if (deleteButton) {
-  deleteButton.addEventListener("click", event => {
+  deleteButton.addEventListener("click", () => {
     deleteButtonReal.classList.toggle("hidden");
     deleteButton.classList.toggle("hidden");
     cancelButton.classList.toggle("hidden");
@@ -20,7 +20,7 @@ if (deleteButton) {
 }
 
 if (cancelButton) {
-  cancelButton.addEventListener("click", event => {
+  cancelButton.addEventListener("click", () => {
     deleteButtonReal.classList.toggle("hidden");
     deleteButton.classList.toggle("hidden");
     cancelButton.classList.toggle("hidden");

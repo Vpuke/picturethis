@@ -14,6 +14,9 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
     $email  = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
     $password = trim(password_hash($_POST['password'], PASSWORD_DEFAULT));
 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['message'] = "The email is not a valid emailaddress.";
+    }
 
     if (emailExists($email, $pdo)) {
         $_SESSION['message'] = "The email is already in use, please try again";

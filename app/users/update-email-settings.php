@@ -11,6 +11,18 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
     $repeatEmail = trim(filter_var($_POST['repeat-email'], FILTER_SANITIZE_EMAIL));
     $id = (int) $_SESSION['user']['id'];
 
+    if (!filter_var($currentEmail, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['message'] = "The email is not a valid emailaddress.";
+    }
+
+    if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['message'] = "The email is not a valid emailaddress.";
+    }
+
+    if (!filter_var($repeatEmail, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['message'] = "The email is not a valid emailaddress.";
+    }
+
     $statement = $pdo->query('SELECT email FROM users WHERE id = :id');
 
     if (!$statement) {

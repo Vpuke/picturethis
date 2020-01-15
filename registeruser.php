@@ -13,27 +13,27 @@
 
             <div class="form-information">
                 <label class="general-label" for="name">Full Name</label>
-                <input type="text" class="input-field-information" name="fullname" placeholder="Enter your Full Name">
+                <input type="text" class="input-field-information" name="fullname" placeholder="Enter your Full Name" required>
             </div>
 
             <div class="form-information">
                 <label class="general-label" for="username">Username</label>
-                <input type="text" class="input-field-information" name="username" placeholder="Enter your Username">
+                <input type="text" class="input-field-information" name="username" placeholder="Enter your Username" reqiured>
             </div>
 
             <div class="form-information">
                 <label class="general-label" for="email">Email</label>
-                <input type="text" class="input-field-information" name="email" placeholder="Enter your Email">
+                <input type="email" class="input-field-information" name="email" placeholder="Enter your Email" required>
             </div>
 
             <div class="form-information">
                 <label class="general-label" for="password">Password</label>
-                <input type="password" class="input-field-information" name="password" placeholder="Enter your Password">
+                <input type="password" class="input-field-information" name="password" placeholder="Enter your Password" required>
             </div>
 
             <div class="form-information">
                 <label class="general-label" for="password-repeat">Repeat password</label>
-                <input type="password" class="input-field-information" name="password-repeat" placeholder="Enter your password again">
+                <input type="password" class="input-field-information" name="password-repeat" placeholder="Enter your password again" required>
             </div>
 
             <button type="submit-button" class="submit-button">Sign up!</button>

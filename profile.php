@@ -15,7 +15,7 @@
     <div class="profile-info">
         <div class="profile-image">
             <?php if (isLoggedIn()) : ?>
-                <img class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+                <img loading="lazy" class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
             <?php endif; ?>
         </div>
 
@@ -40,7 +40,7 @@
         <div class="profile-wrapper">
             <?php foreach ($posts as $post) : ?>
                 <div data-id="<?= $post['id'] ?>" class="profile-post">
-                    <img data-id="<?= $post['id'] ?>" class="profile-post-src" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                    <img loading="lazy" data-id="<?= $post['id'] ?>" class="profile-post-src" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
                     <div data-id="<?= $post['id'] ?>" class="post-content ">
                         <?php $likes = countLikes($post['id'], $pdo) ?>
                         <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>

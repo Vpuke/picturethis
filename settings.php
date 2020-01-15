@@ -15,7 +15,7 @@
 
     <div class="profile-image-upload">
         <?php if (isLoggedIn()) : ?>
-            <img class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
+            <img loading="lazy" class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
         <?php endif; ?>
     </div>
 

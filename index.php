@@ -9,10 +9,10 @@
         <?php foreach ($allPosts as $post) : ?>
             <div class="feed-posts">
                 <div class="info-top-image">
-                    <img class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
+                    <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
                     <p class="username-top"><?= $post['username'] ?></p>
                 </div>
-                <img class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                <img loading="lazy" class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
                 <?php $likes = countLikes($post['id'], $pdo) ?>
                 <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
                 <div class="info-bottom-image">

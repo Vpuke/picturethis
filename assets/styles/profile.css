@@ -17,7 +17,7 @@
 .profile-image-src-small {
   width: 50px;
   height: 50px;
-  margin: 10px 10px;
+  margin: 10px;
   border-radius: 50%;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .profile-info p {
-  margin: 10px 10px;
+  margin: 10px;
 }
 
 .profile-post {
