@@ -49,7 +49,7 @@ In this assignment we are going to build an Instagram clone.
 
 * <strike>footer.css:20-34 - Since all elements here have the same styling, you can minimize the code by selecting all with a comma. This will prevent you from repeating yourself.</strike>
 
-* index.php:12 - Don't forget to add loading lazy to the images. 
+* <strike>index.php:12 - Don't forget to add loading lazy to the images.</strike>
 
 * <strike>profile.css: 20 && 73 - You can write: “margin: 10px” instead of: “margin: 10px 10px”, as it does the same thing.</strike>
 
