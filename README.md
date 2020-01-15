@@ -37,6 +37,26 @@ In this assignment we are going to build an Instagram clone.
 
 * [Jesper Lundqvist](https://github.com/jesperlndqvst) 
 
+* <strike>register.php:12-43 - The form does not contain front end validation, which makes it possible to enter information that is not correct, such as an e-mail address that is not designed as an e-mail address. Add requeried to all input fields and change email input from text to email.</strike>
+
+* <strike>app/register.php - In here, back end validation is needed for email addresses. It is now possible to enter email addresses in the database without an “@“ for example.</strike>
+
+* app/register.php - Validation for empty data is also needed. It is now possible to enter empty strings in all fields and it still ends up in the database.
+
+* <strike>settings.php:33 - Users are notified to go to settings or edit profile to update their biography when they are in settings.</strike> This is default message for biography.
+
+* <strike>update-email-settings.php - Here again, back end validation is needed as it is now possible to remove the front end validation and then enter email addresses without “@“.</strike>
+
+* <strike>footer.css:20-34 - Since all elements here have the same styling, you can minimize the code by selecting all with a comma. This will prevent you from repeating yourself.</strike>
+
+* <strike>index.php:12 - Don't forget to add loading lazy to the images.</strike>
+
+* <strike>profile.css: 20 && 73 - You can write: “margin: 10px” instead of: “margin: 10px 10px”, as it does the same thing.</strike>
+
+* <strike>main.js:13-29 Since you do not use the event attribute in these functions, there is no need to define event in the event listener.</strike>
+
+* overall - Nicely written code that is easy to read and well indented. It was fun and educational for me to study your code. Good work!
+
 ### Made by
 
 * [Viktor Puke](https://github.com/vpuke) 
