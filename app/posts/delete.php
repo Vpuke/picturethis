@@ -23,7 +23,6 @@ if (isLoggedIn() && isset($_POST['postId'])) {
 
             $statement->bindParam(':id', $postId, PDO::PARAM_INT);
             $statement->bindParam(':postImage', $image, PDO::PARAM_STR);
-
             $statement->execute();
 
             unlink(__DIR__ . '/uploads' . $userFolder . '/' . $image . '');

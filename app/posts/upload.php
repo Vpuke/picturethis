@@ -36,7 +36,6 @@ if (isLoggedIn() && isset($_FILES['post-image'], $_POST['post-content'])) {
         $statement->bindParam(':postImage', $newPostImage, PDO::PARAM_STR);
         $statement->bindParam('postContent', $postDescription, PDO::PARAM_STR);
         $statement->bindParam(':userId', $id, PDO::PARAM_INT);
-
         $statement->execute();
 
 

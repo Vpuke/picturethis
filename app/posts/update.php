@@ -19,7 +19,6 @@ if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
     $statement->bindParam(':userId', $id, PDO::PARAM_INT);
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
     $statement->bindParam(':postContent', $editPost, PDO::PARAM_STR);
-
     $statement->execute();
 
     $_SESSION['message'] = "Your post post was successfully changed";

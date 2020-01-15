@@ -13,7 +13,7 @@
 
             <div class="form-information">
                 <label class="general-label" for="name">Full Name</label>
-                <input type="text" class="input-field-information" id="fullname" name="fullname" placeholder="Enter your Full Name">
+                <input type="text" class="input-field-information" name="fullname" placeholder="Enter your Full Name">
             </div>
 
             <div class="form-information">

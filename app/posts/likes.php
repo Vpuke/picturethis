@@ -17,7 +17,6 @@ if (isLoggedIn() && isset($_POST['postId'])) {
 
     $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
     $statement->bindParam(':postId', $postId, PDO::PARAM_INT);
-
     $statement->execute();
 
     $isLikedByUser = $statement->fetch(PDO::FETCH_ASSOC);
@@ -31,7 +30,6 @@ if (isLoggedIn() && isset($_POST['postId'])) {
 
         $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
         $statement->bindParam(':postId', $postId, PDO::PARAM_INT);
-
         $statement->execute();
     } else {
 
@@ -43,7 +41,6 @@ if (isLoggedIn() && isset($_POST['postId'])) {
 
         $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
         $statement->bindParam(':postId', $postId, PDO::PARAM_INT);
-
         $statement->execute();
     }
 

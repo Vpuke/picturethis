@@ -35,7 +35,6 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
 
             $statement->bindParam(':email', $newEmail, PDO::PARAM_STR);
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
-
             $statement->execute();
 
             $_SESSION['message'] = "Your Email has successfully been changed";

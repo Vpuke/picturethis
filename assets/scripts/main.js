@@ -8,6 +8,8 @@ const deleteButtonReal = document.querySelector(".delete-button-settings-real");
 const cancelButton = document.querySelector(".cancel-button-settings");
 const label = document.querySelector(".general-label-settings");
 
+// function to toggle hidden on buttons in settings / deletebutton
+
 if (deleteButton) {
   deleteButton.addEventListener("click", event => {
     deleteButtonReal.classList.toggle("hidden");

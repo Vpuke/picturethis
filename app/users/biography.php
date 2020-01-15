@@ -69,6 +69,7 @@ if (isLoggedIn() && isset($_POST['biography'])) {
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
+
         $_SESSION['message'] = "Your personal settings has been updated";
     }
 

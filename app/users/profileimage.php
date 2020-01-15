@@ -32,7 +32,6 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
 
         $statement->bindParam(':profileimage', $newProfileImage, PDO::PARAM_STR);
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
-
         $statement->execute();
 
         move_uploaded_file($profileImage['tmp_name'], $pathToFile . $newProfileImage);
