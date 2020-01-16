@@ -32,7 +32,6 @@ In this assignment we are going to build an Instagram clone using PHP, HTML, CSS
 
 * [Viktor Sjöblom](https://github.com/viktorsjoblom) 
 * [Henrik Björkvall](https://github.com/henricbjork)
-* [Erik Johannesson](https://github.com/Erik-joh)
 
 ### Code review
 
