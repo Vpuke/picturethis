@@ -5,9 +5,10 @@
 } ?>
 
 
-<?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
-<?php $id = (int) $_SESSION['user']['id']; ?>
+<?php $id = (int) $_GET['id'] ?>
+<?php $user = getUserById($id, $pdo); ?>
 <?php $posts = getPostsByUser($id, $pdo); ?>
+<?php $profile = isUser($user); ?>
 
 <!-- Profile information -->
 
@@ -29,9 +30,11 @@
 
     </div>
 
-    <form>
-        <input type="button" class="submit-button" value="Edit Profile" onclick="window.location.href='settings.php'">
-    </form>
+    <?php if ($profile) : ?>
+        <form>
+            <input type="button" class="submit-button" value="Edit Profile" onclick="window.location.href='settings.php'">
+        </form>
+    <?php endif; ?>
     <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
 
     <!-- POSTS -->
@@ -59,19 +62,20 @@
                                                     echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
                         </div>
                         <!-- EDIT POST -->
-
-                        <div data-id="<?= $post['id'] ?>" class="update-post-content ">
-                            <form class="edit-post-form" action="app/posts/update.php" method="post" enctype="multipart/form-data">
-                                <label class="general-label hidden" for="editPost">Edit post description</label>
-                                <textarea class="textarea-post hidden" name="editPost" cols="30" rows="10" placeholder=""></textarea>
-                                <button data-id="<?= $post['id'] ?>" class="submit-button edit-button " type="button" name="postId" value="<?= $post['id'] ?>">Edit Post</button>
-                                <button class="submit-button update-post hidden" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
-                                <button data-id="<?= $post['id'] ?>" class="submit-button cancel-button hidden" type="button" name="postId" value="<?= $post['id'] ?>">Cancel</button>
-                            </form>
-                            <form class="delete-button-form" action="app/posts/delete.php" method="post" enctype="multipart/form-data">
-                                <button class="submit-button button-delete " type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
-                            </form>
-                        </div>
+                        <?php if ($profile) : ?>
+                            <div data-id="<?= $post['id'] ?>" class="update-post-content ">
+                                <form class="edit-post-form" action="app/posts/update.php" method="post" enctype="multipart/form-data">
+                                    <label class="general-label hidden" for="editPost">Edit post description</label>
+                                    <textarea class="textarea-post hidden" name="editPost" cols="30" rows="10" placeholder=""></textarea>
+                                    <button data-id="<?= $post['id'] ?>" class="submit-button edit-button " type="button" name="postId" value="<?= $post['id'] ?>">Edit Post</button>
+                                    <button class="submit-button update-post hidden" type="submit" name="postId" value="<?= $post['id'] ?>">Update Post</button>
+                                    <button data-id="<?= $post['id'] ?>" class="submit-button cancel-button hidden" type="button" name="postId" value="<?= $post['id'] ?>">Cancel</button>
+                                </form>
+                                <form class="delete-button-form" action="app/posts/delete.php" method="post" enctype="multipart/form-data">
+                                    <button class="submit-button button-delete " type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
+                                </form>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
                 </div>

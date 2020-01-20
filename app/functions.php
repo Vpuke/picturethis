@@ -195,3 +195,18 @@ function isLikedByUser(int $postId, int $userId, object $pdo): bool
 
     return $isLikedByUser ? true : false;
 }
+
+/**
+ * Checks if user is owner of profile
+ *
+ * @param array $user
+ * @return boolean
+ */
+function isUser($user): bool
+{
+    if ($_SESSION['user']['id'] === $user['id']) {
+        return true;
+    } else {
+        return false;
+    }
+}
