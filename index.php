@@ -7,10 +7,11 @@
 
     <section class="user-feed">
         <?php foreach ($allPosts as $post) : ?>
+            <?php $authorId = $post['userId']; ?>
             <div class="feed-posts">
                 <div class="info-top-image">
                     <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
-                    <a href="profile.php?id=<?php echo $post['userId']; ?>">
+                    <a href="<?php echo 'profile.php?id=' . $post['userId']; ?>">
                         <p class="username-top"><?= $post['username'] ?></p>
                     </a>
                 </div>

@@ -79,28 +79,28 @@ function isLoggedIn(): bool
 
 /**
  *  Gets user by id
- * @param int $user
+ * @param integer $id
  * @param PDO $pdo
  * @return array
  */
 
-function getUserById(int $id, object $pdo): array
+function getUserById(int $id, PDO $pdo): array
 {
     $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
-    $statement->bindParam(':id', $id, PDO::PARAM_STR);
 
-    $statement->execute();
+    $statement->execute([
+        ':id' => $id
+    ]);
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
         return $user;
     }
-    return $user = [];
 }
 
 
@@ -208,5 +208,31 @@ function isUser($user): bool
         return true;
     } else {
         return false;
+    }
+}
+
+
+function isFollowed($loggedInUserId, $profileId, $pdo): bool
+{ {
+        $query = 'SELECT * FROM followers WHERE profileId = :profileId AND followerId = :followerId';
+
+        $statement = $pdo->prepare($query);
+
+        if (!$statement) {
+            die(var_dump($pdo->errorInfo()));
+        }
+
+        $statement->execute([
+            ':profileId' => $profileId,
+            ':followerId' => $loggedInUserId
+        ]);
+
+        $isFollowed = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($isFollowed) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
