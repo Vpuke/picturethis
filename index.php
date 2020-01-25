@@ -3,10 +3,11 @@
 <?php if (isLoggedIn()) : ?>
 
     <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
-    <?php $allPosts = getAllPosts($pdo); ?>
+    <!-- <?php $allPosts = getAllPosts($pdo); ?> -->
+    <?php $followedUserPosts = getFollowedUserPosts($pdo); ?>
 
-    <section class="user-feed">
-        <?php foreach ($allPosts as $post) : ?>
+    <section class="followed user-feed">
+        <?php foreach ($followedUserPosts as $post) : ?>
             <?php $authorId = $post['userId']; ?>
             <div class="feed-posts">
                 <div class="info-top-image">
@@ -36,6 +37,8 @@
             </div>
         <?php endforeach; ?>
     </section>
+
+
 
     <?php require __DIR__ . '/views/footer.php'; ?>
 <?php else : ?>

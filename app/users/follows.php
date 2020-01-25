@@ -8,8 +8,6 @@ if (isLoggedIn() && isset($_POST['profile'])) {
     $loggedInUserId = (int) $_SESSION['user']['id'];
     $profileId = (int) filter_var($_POST['profile'], FILTER_SANITIZE_NUMBER_INT);
 
-
-
     if (!isFollowed($loggedInUserId, $profileId, $pdo)) {
         $statement = $pdo->prepare('INSERT INTO followers (profileId, followerId) VALUES (:profileId, :followerId)');
 

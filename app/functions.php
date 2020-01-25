@@ -196,6 +196,7 @@ function isLikedByUser(int $postId, int $userId, object $pdo): bool
     return $isLikedByUser ? true : false;
 }
 
+
 /**
  * Checks if user is owner of profile
  *
@@ -212,7 +213,15 @@ function isUser($user): bool
 }
 
 
-function isFollowed($loggedInUserId, $profileId, $pdo): bool
+/**
+ * Checks if user is followed by logged in user
+ *
+ * @param int $loggedInUserId
+ * @param int $profileId
+ * @param PDO $pdo
+ * @return boolean
+ */
+function isFollowed(int $loggedInUserId, int $profileId, PDO $pdo): bool
 { {
         $query = 'SELECT * FROM followers WHERE profileId = :profileId AND followerId = :followerId';
 
@@ -235,4 +244,25 @@ function isFollowed($loggedInUserId, $profileId, $pdo): bool
             return false;
         }
     }
+}
+
+/**
+ * Get all posts from database by followed users
+ *
+ * @param PDO $pdo
+ * @return array
+ */
+function getFollowedUserPosts(PDO $pdo): array
+{
+    $statement = $pdo->prepare('SELECT posts.id, posts.postImage, posts.postContent, posts.createdAt, posts.userId, followers.profileId, users.id, users.username, users.profileimage FROM posts JOIN users ON users.id = posts.userId JOIN followers ON posts.userId = followers.profileId ORDER BY posts.createdAt DESC');
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute();
+
+    $followedUserPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $followedUserPosts;
 }
