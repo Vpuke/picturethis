@@ -9,8 +9,8 @@
     <section class="settings-page">
         <form class="search-form" action="search.php" method="get" enctype="multipart/form-data">
             <div class="form-information">
-                <label class="general-label" for="search" placeholder="Username">Search users:</label>
-                <input type="text" name="search" />
+                <label class="general-label" for="search">Search:</label>
+                <input type="text" name="search" placeholder="Search for users..." />
                 <input type="submit" value="Submit" />
             </div>
         </form>

@@ -34,9 +34,9 @@ $loggedInUserId = $_SESSION['user']['id']; ?>
             <?php endif; ?>
         </div>
         <?php if ($profileId !== $loggedInUserId) : ?>
-            <form class="follow-form" action="app/users/follows.php" method="post" enctype="multipart/form-data">
+            <form class="follow-form" action="app/users/follows.php" method="post">
                 <input type="hidden" id="<?php echo $profileId; ?>" name="profile" value="<?php echo $profileId; ?> ">
-                <button class="submit-button">
+                <button class="follow-button">
                     <?php if (isFollowed($loggedInUserId, $profileId, $pdo)) : ?>
                         Unfollow
                     <?php else : ?>

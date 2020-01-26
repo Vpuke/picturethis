@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+header('Content-Type: application/json');
+
 if (isLoggedIn() && isset($_POST['profile'])) {
     $loggedInUserId = (int) $_SESSION['user']['id'];
     $profileId = (int) filter_var($_POST['profile'], FILTER_SANITIZE_NUMBER_INT);
@@ -18,7 +20,6 @@ if (isLoggedIn() && isset($_POST['profile'])) {
         $statement->bindParam(':profileId', $profileId, PDO::PARAM_INT);
         $statement->bindParam(':followerId', $loggedInUserId, PDO::PARAM_INT);
         $statement->execute();
-        redirect('../../profile.php?id=' . $profileId);
     } else {
 
         $statement = $pdo->prepare('DELETE FROM followers WHERE profileId = :profileId AND followerId = :followerId');
@@ -30,6 +31,13 @@ if (isLoggedIn() && isset($_POST['profile'])) {
         $statement->bindParam(':profileId', $profileId, PDO::PARAM_INT);
         $statement->bindParam(':followerId', $loggedInUserId, PDO::PARAM_INT);
         $statement->execute();
-        redirect('../../profile.php?id=' . $profileId);
     }
+
+    $isFollowed = isFollowed($loggedInUserId, $profileId, $pdo);
+
+    $json = ([
+        'isFollowed' => $isFollowed
+    ]);
+
+    echo json_encode($json);
 }
