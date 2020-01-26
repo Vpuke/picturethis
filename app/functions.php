@@ -266,3 +266,29 @@ function getFollowedUserPosts(PDO $pdo): array
 
     return $followedUserPosts;
 }
+
+/**
+ * Returns users in database from given search query
+ *
+ * @param string $search
+ * @param PDO $pdo
+ * @return array
+ */
+function getSearchResult($search, $pdo): array
+{
+    $search = trim(filter_var($_GET['search'], FILTER_SANITIZE_STRING));
+    $search = '%' . $search . '%';
+
+    $statement = $pdo->prepare('SELECT * FROM users WHERE username LIKE :search');
+
+    if (!$statement) {
+        die(var_dump($pdo->errorinfo()));
+    }
+
+    $statement->bindParam(':search', $search, PDO::PARAM_STR);
+    $statement->execute();
+
+    $searchResult = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $searchResult;
+}
