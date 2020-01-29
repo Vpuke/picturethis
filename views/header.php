@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/assets/styles/settings.css">
     <link rel="stylesheet" href="/assets/styles/upload.css">
     <link rel="stylesheet" href="/assets/styles/register.css">
+    <link rel="stylesheet" href="/assets/styles/search.css">
     <link rel="stylesheet" href="/assets/styles/desktopversion.css">
 </head>
 

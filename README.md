@@ -3,7 +3,7 @@
 
 ### About
 
-In this assignment we are going to build an Instagram clone. 
+In this assignment we are going to build an Instagram clone using PHP, HTML, CSS, Javascript and SQLite database.
 
 ### Requirements
 
@@ -22,16 +22,24 @@ In this assignment we are going to build an Instagram clone.
 
 * As a user I'm able to delete my account along with all posts and comments.
 
+### Features added for Picture That
+
+* As a use I should be able to search and see a list of posts by query.
+* As a user I should be able to follow and unfollow other users and see their feeds.
+* Link to pull request https://github.com/Vpuke/picturethis/pull/3
+* Features added by  [Terese Thulin](https://github.com/teresethulin)
+
+
 ### Getting started
 
 * First you have to clone the repository picturethis, either via [this link](https://github.com/vpuke/picturethis) in Github desktop or `git clone https://github.com/vpuke/picturethis.git`in the terminal of your choice.
 * Create server in terminal of your choice while in root of repository: ```PHP -S Localhost:1337```.
+* Open Browser and write ```localhost:1337``` in address field.
 
 ### Testers
 
 * [Viktor Sjöblom](https://github.com/viktorsjoblom) 
 * [Henrik Björkvall](https://github.com/henricbjork)
-* [Erik Johannesson](https://github.com/Erik-joh)
 
 ### Code review
 
