@@ -279,7 +279,7 @@ function getSearchResult($search, $pdo): array
     $search = trim(filter_var($_GET['search'], FILTER_SANITIZE_STRING));
     $search = '%' . $search . '%';
 
-    $statement = $pdo->prepare('SELECT * FROM users WHERE username LIKE :search');
+    $statement = $pdo->prepare('SELECT id, username, profileImage FROM users WHERE username LIKE :search');
 
     if (!$statement) {
         die(var_dump($pdo->errorinfo()));
