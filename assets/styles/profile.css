@@ -50,6 +50,10 @@
   width: 80%;
 }
 
+.follow-form {
+  margin: 0 10px;
+}
+
 .profile-post-src {
   width: 100%;
   object-fit: cover;

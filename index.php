@@ -3,14 +3,18 @@
 <?php if (isLoggedIn()) : ?>
 
     <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
-    <?php $allPosts = getAllPosts($pdo); ?>
+    <!-- <?php $allPosts = getAllPosts($pdo); ?> -->
+    <?php $followedUserPosts = getFollowedUserPosts($pdo); ?>
 
-    <section class="user-feed">
-        <?php foreach ($allPosts as $post) : ?>
+    <section class="followed user-feed">
+        <?php foreach ($followedUserPosts as $post) : ?>
+            <?php $authorId = $post['userId']; ?>
             <div class="feed-posts">
                 <div class="info-top-image">
                     <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
-                    <p class="username-top"><?= $post['username'] ?></p>
+                    <a href="<?php echo 'profile.php?id=' . $post['userId']; ?>">
+                        <p class="username-top"><?= $post['username'] ?></p>
+                    </a>
                 </div>
                 <img loading="lazy" class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
                 <?php $likes = countLikes($post['id'], $pdo) ?>
@@ -33,6 +37,8 @@
             </div>
         <?php endforeach; ?>
     </section>
+
+
 
     <?php require __DIR__ . '/views/footer.php'; ?>
 <?php else : ?>
