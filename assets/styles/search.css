@@ -1,0 +1,30 @@
+.search-page {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.search-result ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-result ul li {
+  background-color: #070909;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 250px;
+  height: 100px;
+  padding-left: 3vw;
+}
+
+.search-result ul li > a {
+  margin-left: 2vw;
+}
+
+.search-result ul li:hover {
+  background-color: #1c1d1d;
+}
