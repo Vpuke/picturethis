@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-email'])) {
-
     $currentEmail = trim(filter_var($_POST['current-email'], FILTER_SANITIZE_EMAIL));
     $newEmail = trim(filter_var($_POST['new-email'], FILTER_SANITIZE_EMAIL));
     $repeatEmail = trim(filter_var($_POST['repeat-email'], FILTER_SANITIZE_EMAIL));
@@ -36,9 +35,7 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
 
 
     if ($currentEmail == $user['email']) {
-
         if ($newEmail == $repeatEmail) {
-
             $statement = $pdo->prepare('UPDATE users SET email = :email WHERE id = :id');
 
             if (!$statement) {

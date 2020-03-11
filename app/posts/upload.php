@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isLoggedIn() && isset($_FILES['post-image'], $_POST['post-content'])) {
-
     $postDescription = trim(filter_var($_POST['post-content'], FILTER_SANITIZE_STRING));
     $postImage = $_FILES['post-image'];
     $username = $_SESSION['user']['username'];

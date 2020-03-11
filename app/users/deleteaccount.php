@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['delete-button'])) {
-
     $id = (int) $_SESSION['user']['id'];
     $profileImage = $_SESSION['user']['profileimage'];
 

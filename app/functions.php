@@ -222,7 +222,8 @@ function isUser($user): bool
  * @return boolean
  */
 function isFollowed(int $loggedInUserId, int $profileId, PDO $pdo): bool
-{ {
+{
+    {
         $query = 'SELECT * FROM followers WHERE profileId = :profileId AND followerId = :followerId';
 
         $statement = $pdo->prepare($query);

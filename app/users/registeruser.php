@@ -3,7 +3,6 @@
 require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['password'])) {
-
     if ($_POST['password'] !== $_POST['password-repeat']) {
         $_SESSION['message'] = "Your passwords do not match, try again";
         redirect('/registeruser.php');

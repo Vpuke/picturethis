@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['postId'])) {
-
     $postId = $_POST['postId'];
     $userId = (int) $_SESSION['user']['id'];
 
@@ -32,7 +31,6 @@ if (isLoggedIn() && isset($_POST['postId'])) {
         $statement->bindParam(':postId', $postId, PDO::PARAM_INT);
         $statement->execute();
     } else {
-
         $statement = $pdo->prepare('DELETE FROM likes WHERE userId = :userId AND postId = :postId');
 
         if (!$statement) {
@@ -49,6 +47,5 @@ if (isLoggedIn() && isset($_POST['postId'])) {
     header('Content-Type: application/json');
     echo $likes;
 } else {
-
     redirect('/index.php');
 }

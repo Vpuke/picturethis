@@ -21,7 +21,6 @@ if (isLoggedIn() && isset($_POST['profile'])) {
         $statement->bindParam(':followerId', $loggedInUserId, PDO::PARAM_INT);
         $statement->execute();
     } else {
-
         $statement = $pdo->prepare('DELETE FROM followers WHERE profileId = :profileId AND followerId = :followerId');
 
         if (!$statement) {

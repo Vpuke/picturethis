@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_POST['repeat-password'])) {
-
     $currentPassword = trim($_POST['current-password']);
     $newPassword = trim($_POST['new-password']);
     $repeatPassword = trim($_POST['repeat-password']);
@@ -23,9 +22,7 @@ if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (password_verify($currentPassword, $user['password'])) {
-
         if ($newPassword == $repeatPassword) {
-
             $statement = $pdo->prepare('UPDATE users SET password = :password WHERE id = :id');
 
             if (!$statement) {
