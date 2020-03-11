@@ -1,3 +1,5 @@
+<a href="https://github.styleci.io/repos/226868587"><img src="https://github.styleci.io/repos/226868587/shield?branch=master" alt="StyleCI"></a>
+
 # Picture This
 <img src="https://media.giphy.com/media/6LzPPnutAquju/giphy.gif" width="100%" height ="700vh">
 
