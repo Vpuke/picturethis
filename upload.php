@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php'; ?>
 
 <?php if (!isset($_SESSION['user'])) {
     redirect('/');
@@ -18,11 +18,11 @@
             <textarea class="biography-field" name="post-content" cols="30" rows="10"></textarea>
             <button class="submit-button" type="submit" name="button">Upload Post</button>
         </div>
-        <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
+        <p class="message"><?php require __DIR__.'/views/usermessage.php'; ?></p>
     </form>
 
 </section>
 
 
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+<?php require __DIR__.'/views/footer.php'; ?>

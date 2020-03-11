@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php'; ?>
 
 <section>
 
@@ -8,7 +8,7 @@
         </div>
 
         <h2>Sign up now!</h2>
-        <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
+        <p class="message"><?php require __DIR__.'/views/usermessage.php'; ?></p>
         <form role="form" method="post" action="app/users/registeruser.php">
 
             <div class="form-information">

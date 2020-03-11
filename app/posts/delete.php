@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['postId'])) {
     $postId = $_POST['postId'];
@@ -25,9 +25,9 @@ if (isLoggedIn() && isset($_POST['postId'])) {
             $statement->bindParam(':postImage', $image, PDO::PARAM_STR);
             $statement->execute();
 
-            unlink(__DIR__ . '/uploads' . $userFolder . '/' . $image . '');
+            unlink(__DIR__.'/uploads'.$userFolder.'/'.$image.'');
 
-            $_SESSION['message'] = "Your post was successfully deleted";
+            $_SESSION['message'] = 'Your post was successfully deleted';
         }
     }
     redirect('/profile.php');

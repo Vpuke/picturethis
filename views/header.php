@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/../app/autoload.php'; ?>
+<?php require __DIR__.'/../app/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +25,6 @@
 </head>
 
 <body>
-    <?php if (isLoggedIn()) : ?>
-        <?php require __DIR__ . '/navigation.php'; ?>
-    <?php endif; ?>
+    <?php if (isLoggedIn()) { ?>
+        <?php require __DIR__.'/navigation.php'; ?>
+    <?php } ?>

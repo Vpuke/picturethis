@@ -1,10 +1,10 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php'; ?>
 
 <?php if (!isset($_SESSION['user'])) {
     redirect('/');
 } ?>
 
-<?php if (isLoggedIn()) : ?>
+<?php if (isLoggedIn()) { ?>
 
     <section class="search-page">
         <form class="search-form" action="search.php" method="get" enctype="multipart/form-data">
@@ -18,21 +18,21 @@
     </section>
 
     <section class="search-result">
-        <?php if (isset($_GET['search'])) : ?>
+        <?php if (isset($_GET['search'])) { ?>
             <?php $results = getSearchResult($_GET['search'], $pdo); ?>
             <ul class="search-result">
-                <?php foreach ($results as $result) : ?>
+                <?php foreach ($results as $result) { ?>
                     <li>
-                        <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $result['profileimage'] ?>" alt="Profile-image">
-                        <a href="<?php echo 'profile.php?id=' . $result['id']; ?>">
+                        <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/'.$result['profileimage'] ?>" alt="Profile-image">
+                        <a href="<?php echo 'profile.php?id='.$result['id']; ?>">
                             <p class="username-top"><?= $result['username'] ?></p>
                         </a>
                     </li>
-                <?php endforeach; ?>
+                <?php } ?>
             </ul>
-        <?php endif; ?>
+        <?php } ?>
     </section>
 
-<?php endif; ?>
+<?php } ?>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+<?php require __DIR__.'/views/footer.php'; ?>

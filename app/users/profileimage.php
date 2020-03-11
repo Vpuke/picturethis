@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_FILES['profileimage'])) {
     $profileImage = $_FILES['profileimage'];
     $username = $_SESSION['user']['username'];
     $id = (int) $_SESSION['user']['id'];
-    $pathToFile = __DIR__ . '/images/';
+    $pathToFile = __DIR__.'/images/';
     $fileType = pathinfo($_FILES['profileimage']['name'], PATHINFO_EXTENSION);
 
-    $newProfileImage = $username . '-' . date('ymd') . '.' . $fileType;
+    $newProfileImage = $username.'-'.date('ymd').'.'.$fileType;
 
     if ($profileImage['size'] >= 3000000) {
-        $_SESSION['message'] = "The image you chose is too big";
+        $_SESSION['message'] = 'The image you chose is too big';
         redirect('/settings.php');
     }
 
@@ -33,9 +33,9 @@ if (isLoggedIn() && isset($_FILES['profileimage'])) {
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        move_uploaded_file($profileImage['tmp_name'], $pathToFile . $newProfileImage);
+        move_uploaded_file($profileImage['tmp_name'], $pathToFile.$newProfileImage);
     }
-    $_SESSION['message'] = "Your profile image was successfully changed";
+    $_SESSION['message'] = 'Your profile image was successfully changed';
     $_SESSION['user']['profileimage'] = $newProfileImage;
     redirect('/settings.php');
 }

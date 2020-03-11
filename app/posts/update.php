@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
     $editPost = trim(filter_var($_POST['editPost'], FILTER_SANITIZE_STRING));
@@ -20,7 +20,7 @@ if (isLoggedIn() && isset($_POST['editPost'], $_POST['postId'])) {
     $statement->bindParam(':postContent', $editPost, PDO::PARAM_STR);
     $statement->execute();
 
-    $_SESSION['message'] = "Your post post was successfully changed";
+    $_SESSION['message'] = 'Your post post was successfully changed';
     redirect('/profile.php');
 }
 redirect('/');

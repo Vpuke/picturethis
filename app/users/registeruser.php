@@ -1,34 +1,34 @@
 <?php
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['password'])) {
     if ($_POST['password'] !== $_POST['password-repeat']) {
-        $_SESSION['message'] = "Your passwords do not match, try again";
+        $_SESSION['message'] = 'Your passwords do not match, try again';
         redirect('/registeruser.php');
     }
 
     $fullname = trim(filter_var($_POST['fullname'], FILTER_SANITIZE_STRING));
     $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
-    $email  = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+    $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
     $password = trim(password_hash($_POST['password'], PASSWORD_DEFAULT));
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['message'] = "The email is not a valid emailaddress.";
+        $_SESSION['message'] = 'The email is not a valid emailaddress.';
     }
 
     if (emailExists($email, $pdo)) {
-        $_SESSION['message'] = "The email is already in use, please try again";
+        $_SESSION['message'] = 'The email is already in use, please try again';
         redirect('/registeruser.php');
     }
 
     if (userExists($username, $pdo)) {
-        $_SESSION['message'] = "That username is already in use, please try again";
+        $_SESSION['message'] = 'That username is already in use, please try again';
         redirect('/registeruser.php');
     }
 
     $profileimage = 'placeholder.png';
-    $biography = "Go to Settings or Edit Profile to update your biography";
+    $biography = 'Go to Settings or Edit Profile to update your biography';
 
     $statement = $pdo->prepare('INSERT INTO users (fullname, username, email, password, profileimage, biography) 
                                 VALUES (:fullname, :username, :email, :password, :profileimage, :biography)');
@@ -44,7 +44,7 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
     $statement->execute();
 
     redirect('/index.php');
-    $_SESSION['message'] = "You created an account! Please login.";
+    $_SESSION['message'] = 'You created an account! Please login.';
 }
 
 redirect('/');

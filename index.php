@@ -1,22 +1,22 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php'; ?>
 
-<?php if (isLoggedIn()) : ?>
+<?php if (isLoggedIn()) { ?>
 
     <?php $user = getUserById($_SESSION['user']['id'], $pdo); ?>
     <!-- <?php $allPosts = getAllPosts($pdo); ?> -->
     <?php $followedUserPosts = getFollowedUserPosts($pdo); ?>
 
     <section class="followed user-feed">
-        <?php foreach ($followedUserPosts as $post) : ?>
+        <?php foreach ($followedUserPosts as $post) { ?>
             <?php $authorId = $post['userId']; ?>
             <div class="feed-posts">
                 <div class="info-top-image">
-                    <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/' . $post['profileimage'] ?>" alt="Profile-image">
-                    <a href="<?php echo 'profile.php?id=' . $post['userId']; ?>">
+                    <img loading="lazy" class="profile-image-src profile-image-src-small" src="<?= 'app/users/images/'.$post['profileimage'] ?>" alt="Profile-image">
+                    <a href="<?php echo 'profile.php?id='.$post['userId']; ?>">
                         <p class="username-top"><?= $post['username'] ?></p>
                     </a>
                 </div>
-                <img loading="lazy" class="largePosts" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                <img loading="lazy" class="largePosts" src="<?= 'app/posts/uploads/'.$post['postImage'] ?>" alt="">
                 <?php $likes = countLikes($post['id'], $pdo) ?>
                 <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
                 <div class="info-bottom-image">
@@ -31,17 +31,17 @@
                     <p class="username-bottom"><?= $post['username'] ?> </p>
                     <p class="content-bottom"><?= $post['postContent'] ?></p>
                     <p class="date-bottom"><?php $date = $post['createdAt'];
-                                            $currentDate = explode("-", $date);
-                                            echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
+                                            $currentDate = explode('-', $date);
+                                            echo $currentDate[0].'-'.$currentDate[1].'-'.$currentDate[2] ?></p>
                 </div>
             </div>
-        <?php endforeach; ?>
+        <?php } ?>
     </section>
 
 
 
-    <?php require __DIR__ . '/views/footer.php'; ?>
-<?php else : ?>
+    <?php require __DIR__.'/views/footer.php'; ?>
+<?php } else { ?>
 
     <article class="login-page">
 
@@ -65,8 +65,8 @@
             </div>
             <button type="submit" class="submit-button" name="button">Login</button>
         </form>
-        <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?><p>
+        <p class="message"><?php require __DIR__.'/views/usermessage.php'; ?><p>
                 <p class="account">Do not have an account? Sign up <a href="/registeruser.php"><span>here!</span></a></p>
     </article>
 
-<?php endif; ?>
+<?php } ?>

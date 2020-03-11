@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php'; ?>
 
 <?php if (!isset($_SESSION['user'])) {
     redirect('/');
@@ -22,45 +22,45 @@ $loggedInUserId = $_SESSION['user']['id']; ?>
 <section class="profile-page">
     <div class="profile-info">
         <div class="profile-image">
-            <?php if (isLoggedIn()) : ?>
-                <img loading="lazy" class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
-            <?php endif; ?>
+            <?php if (isLoggedIn()) { ?>
+                <img loading="lazy" class="profile-image-src" src="<?= 'app/users/images/'.$user['profileimage'] ?>" alt="Profile-image">
+            <?php } ?>
         </div>
         <p class=> <?php echo $user['username'] ?></p>
 
         <div class="biography-profile-page">
-            <?php if (isLoggedIn()) : ?>
+            <?php if (isLoggedIn()) { ?>
                 <p><?php echo $user['biography']; ?></p>
-            <?php endif; ?>
+            <?php } ?>
         </div>
-        <?php if ($profileId !== $loggedInUserId) : ?>
+        <?php if ($profileId !== $loggedInUserId) { ?>
             <form class="follow-form" action="app/users/follows.php" method="post">
                 <input type="hidden" id="<?php echo $profileId; ?>" name="profile" value="<?php echo $profileId; ?> ">
                 <button class="follow-button">
-                    <?php if (isFollowed($loggedInUserId, $profileId, $pdo)) : ?>
+                    <?php if (isFollowed($loggedInUserId, $profileId, $pdo)) { ?>
                         Unfollow
-                    <?php else : ?>
+                    <?php } else { ?>
                         Follow
-                    <?php endif; ?>
+                    <?php } ?>
                 </button>
             </form>
-        <?php endif; ?>
+        <?php } ?>
     </div>
 
-    <?php if ($isUserProfile) : ?>
+    <?php if ($isUserProfile) { ?>
         <form>
             <input type="button" class="submit-button" value="Edit Profile" onclick="window.location.href='settings.php'">
         </form>
-    <?php endif; ?>
-    <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
+    <?php } ?>
+    <p class="message"><?php require __DIR__.'/views/usermessage.php'; ?></p>
 
     <!-- POSTS -->
 
-    <?php if (isLoggedIn()) : ?>
+    <?php if (isLoggedIn()) { ?>
         <div class="profile-wrapper">
-            <?php foreach ($posts as $post) : ?>
+            <?php foreach ($posts as $post) { ?>
                 <div data-id="<?= $post['id'] ?>" class="profile-post">
-                    <img loading="lazy" data-id="<?= $post['id'] ?>" class="profile-post-src" src="<?= 'app/posts/uploads/' . $post['postImage'] ?>" alt="">
+                    <img loading="lazy" data-id="<?= $post['id'] ?>" class="profile-post-src" src="<?= 'app/posts/uploads/'.$post['postImage'] ?>" alt="">
                     <div data-id="<?= $post['id'] ?>" class="post-content ">
                         <?php $likes = countLikes($post['id'], $pdo) ?>
                         <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo); ?>
@@ -75,11 +75,11 @@ $loggedInUserId = $_SESSION['user']['id']; ?>
                             </div>
                             <p class="content-bottom"><?php echo $post['postContent']; ?></p>
                             <p class="date-bottom"><?php $date = $post['createdAt'];
-                                                    $currentDate = explode("-", $date);
-                                                    echo $currentDate[0] . '-' . $currentDate[1] . '-' . $currentDate[2] ?></p>
+                                                    $currentDate = explode('-', $date);
+                                                    echo $currentDate[0].'-'.$currentDate[1].'-'.$currentDate[2] ?></p>
                         </div>
                         <!-- EDIT POST -->
-                        <?php if ($isUserProfile) : ?>
+                        <?php if ($isUserProfile) { ?>
                             <div data-id="<?= $post['id'] ?>" class="update-post-content ">
                                 <form class="edit-post-form" action="app/posts/update.php" method="post" enctype="multipart/form-data">
                                     <label class="general-label hidden" for="editPost">Edit post description</label>
@@ -92,14 +92,14 @@ $loggedInUserId = $_SESSION['user']['id']; ?>
                                     <button class="submit-button button-delete " type="submit" name="postId" value="<?= $post['id'] ?>">Delete Post</button>
                                 </form>
                             </div>
-                        <?php endif; ?>
+                        <?php } ?>
                     </div>
-                <?php endforeach; ?>
+                <?php } ?>
                 </div>
-            <?php endif; ?>
+            <?php } ?>
 </section>
 
 
 
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+<?php require __DIR__.'/views/footer.php'; ?>

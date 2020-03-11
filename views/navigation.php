@@ -1,4 +1,4 @@
-<?php if (isLoggedIn()) : ?>
+<?php if (isLoggedIn()) { ?>
 
     <nav>
         <ul>
@@ -13,10 +13,10 @@
             </li>
         </ul>
     </nav>
-<?php else : ?>
+<?php } else { ?>
 
     <nav class="navbar">
         <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
     </nav>
 
-<?php endif; ?>
+<?php } ?>

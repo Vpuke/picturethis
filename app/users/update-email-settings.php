@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-email'])) {
     $currentEmail = trim(filter_var($_POST['current-email'], FILTER_SANITIZE_EMAIL));
@@ -11,15 +11,15 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
     $id = (int) $_SESSION['user']['id'];
 
     if (!filter_var($currentEmail, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['message'] = "The email is not a valid emailaddress.";
+        $_SESSION['message'] = 'The email is not a valid emailaddress.';
     }
 
     if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['message'] = "The email is not a valid emailaddress.";
+        $_SESSION['message'] = 'The email is not a valid emailaddress.';
     }
 
     if (!filter_var($repeatEmail, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['message'] = "The email is not a valid emailaddress.";
+        $_SESSION['message'] = 'The email is not a valid emailaddress.';
     }
 
     $statement = $pdo->query('SELECT email FROM users WHERE id = :id');
@@ -33,7 +33,6 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-
     if ($currentEmail == $user['email']) {
         if ($newEmail == $repeatEmail) {
             $statement = $pdo->prepare('UPDATE users SET email = :email WHERE id = :id');
@@ -46,14 +45,14 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
             $statement->execute();
 
-            $_SESSION['message'] = "Your Email has successfully been changed";
+            $_SESSION['message'] = 'Your Email has successfully been changed';
 
             $_SESSION['user']['email'] = $newEmail;
         } else {
-            $_SESSION['message'] = "Your new Emails does not match, try again!";
+            $_SESSION['message'] = 'Your new Emails does not match, try again!';
         }
     } else {
-        $_SESSION['message'] = "Your old Email does not match, try again!";
+        $_SESSION['message'] = 'Your old Email does not match, try again!';
     }
 } else {
     redirect('/');
