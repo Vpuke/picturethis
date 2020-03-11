@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php'; ?>
 
 <?php if (!isset($_SESSION['user'])) {
     redirect('/');
@@ -11,12 +11,12 @@
 <section class="settings-page">
 
     <h2>Settings</h2>
-    <p class="message"><?php require __DIR__ . '/views/usermessage.php'; ?></p>
+    <p class="message"><?php require __DIR__.'/views/usermessage.php'; ?></p>
 
     <div class="profile-image-upload">
-        <?php if (isLoggedIn()) : ?>
-            <img loading="lazy" class="profile-image-src" src="<?= 'app/users/images/' . $user['profileimage'] ?>" alt="Profile-image">
-        <?php endif; ?>
+        <?php if (isLoggedIn()) { ?>
+            <img loading="lazy" class="profile-image-src" src="<?= 'app/users/images/'.$user['profileimage'] ?>" alt="Profile-image">
+        <?php } ?>
     </div>
 
     <form class="profile-image" action="app/users/profileimage.php" method="post" enctype="multipart/form-data">
@@ -69,4 +69,4 @@
     <button class="submit-button cancel-button-settings hidden">Cancel</button>
 </section>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+<?php require __DIR__.'/views/footer.php'; ?>

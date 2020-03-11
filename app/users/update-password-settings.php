@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_POST['repeat-password'])) {
     $currentPassword = trim($_POST['current-password']);
@@ -34,14 +34,14 @@ if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_
 
             $statement->execute();
 
-            $_SESSION['message'] = "Your Password has successfully been changed";
+            $_SESSION['message'] = 'Your Password has successfully been changed';
 
             $_SESSION['user']['password'] = $newPassword;
         } else {
-            $_SESSION['message'] = "Your new Passwords do not match, try again!";
+            $_SESSION['message'] = 'Your new Passwords do not match, try again!';
         }
     } else {
-        $_SESSION['message'] = "Your old Password does not match, try again!";
+        $_SESSION['message'] = 'Your old Password does not match, try again!';
     }
 } else {
     redirect('/');

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isset($_POST['username'], $_POST['password'])) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -19,7 +19,7 @@ if (isset($_POST['username'], $_POST['password'])) {
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        $_SESSION['message'] = "The username does not exist";
+        $_SESSION['message'] = 'The username does not exist';
         redirect('/index.php');
     }
 
@@ -28,8 +28,8 @@ if (isset($_POST['username'], $_POST['password'])) {
 
         $_SESSION['user'] = $user;
     } else {
-        $_SESSION['message'] = "You entered the wrong password";
+        $_SESSION['message'] = 'You entered the wrong password';
     }
-};
+}
 
-redirect("/");
+redirect('/');

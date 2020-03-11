@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     echo $message;

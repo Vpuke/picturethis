@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 header('Content-Type: application/json');
 
@@ -35,7 +35,7 @@ if (isLoggedIn() && isset($_POST['profile'])) {
     $isFollowed = isFollowed($loggedInUserId, $profileId, $pdo);
 
     $json = ([
-        'isFollowed' => $isFollowed
+        'isFollowed' => $isFollowed,
     ]);
 
     echo json_encode($json);

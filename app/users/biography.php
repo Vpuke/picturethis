@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../autoload.php';
+require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['biography'])) {
     $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
@@ -21,7 +21,7 @@ if (isLoggedIn() && isset($_POST['biography'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if ($_POST['biography'] == "") {
+    if ($_POST['biography'] == '') {
         $biography = $_SESSION['user']['biography'];
     } else {
         $statement = $pdo->prepare('UPDATE users SET biography = :biography WHERE id = :id');
@@ -34,10 +34,10 @@ if (isLoggedIn() && isset($_POST['biography'])) {
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        $_SESSION['message'] = "Your personal settings has been updated";
+        $_SESSION['message'] = 'Your personal settings has been updated';
     }
 
-    if ($_POST['edit-name'] == "") {
+    if ($_POST['edit-name'] == '') {
         $name = $_SESSION['user']['fullname'];
     } else {
         $statement = $pdo->prepare('UPDATE users SET fullname = :fullname WHERE id = :id');
@@ -50,10 +50,10 @@ if (isLoggedIn() && isset($_POST['biography'])) {
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        $_SESSION['message'] = "Your personal settings has been updated";
+        $_SESSION['message'] = 'Your personal settings has been updated';
     }
 
-    if ($_POST['edit-username'] == "") {
+    if ($_POST['edit-username'] == '') {
         $username = $_SESSION['user']['username'];
     } else {
         $statement = $pdo->prepare('UPDATE users SET username = :username WHERE id = :id');
@@ -66,7 +66,7 @@ if (isLoggedIn() && isset($_POST['biography'])) {
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        $_SESSION['message'] = "Your personal settings has been updated";
+        $_SESSION['message'] = 'Your personal settings has been updated';
     }
 
     redirect('/settings.php');
